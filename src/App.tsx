@@ -10,6 +10,7 @@ function App(): JSX.Element {
                 UD CIS Scheduler
                 <p>
                     Anthony Racioppo
+                    Nicolas Steuernagle
                 </p>
             </header>
         </div>
