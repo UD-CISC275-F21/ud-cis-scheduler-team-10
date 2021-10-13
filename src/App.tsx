@@ -11,6 +11,7 @@ function App(): JSX.Element {
                 <p>
                     Anthony Racioppo
                     Nicolas Steuernagle
+                    Alex Pilling
                 </p>
             </header>
         </div>
