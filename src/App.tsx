@@ -1,19 +1,15 @@
 import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { SemesterTab } from "./components/SemesterTab";
+
 
 function App(): JSX.Element {
     return (
         <div className="App">
-            <header className="App-header">
-                <img src={logo} className="App-logo" alt="logo" />
-                UD CIS Scheduler
-                <p>
-                    Anthony Racioppo
-                    Nicolas Steuernagle
-                    Alex Pilling
-                </p>
-            </header>
+
+            <h1>UD CIS Scheduler</h1>
+            <SemesterTab></SemesterTab>
         </div>
     );
 }
