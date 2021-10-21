@@ -2,7 +2,7 @@
 
 export interface Course {
     Number: string,
-    Credits: number,
+    Credits: string,
     Name: string,
     Description: string
 }
