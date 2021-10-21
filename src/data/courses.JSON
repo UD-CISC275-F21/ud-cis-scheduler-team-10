@@ -334,5 +334,11 @@
       "Credits": 3,
       "Name": "Introduction to Philosophy",
       "Description": "This course is an analytic introduction to Philosophy through the study of the Philosophy of Religion, Epistemology, Metaphysics and Ethics.  Among the questions we will consider are the following: Does God exist?  Can we know that an external world exists?  Is any belief about the future rational?  What is the relationship between the mind and brain?  What, if anything, makes our actions right or wrong?  Doe we ever act freely?  Readings will be from both historical and contemporary sources."
+    },
+    {
+      "Number": "HIST106",
+      "Credits": 3,
+      "Name": "U.S. History from 1865",
+      "Description": "An introductory survey of 17th, 18th, and 19th-century American history. Themes and approach vary with the instructor. Information valid for courses offered 2019 through 2020."
     }
    ]
