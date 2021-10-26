@@ -1,6 +1,5 @@
 import React from "react";
 import { Tab, Tabs } from "react-bootstrap";
-import { ClearSemester } from "./ClearSemester";
 import { SemesterTable } from "./SemesterTable";
 import CourseData from "../data/courses.json";
 import { Course } from "../interfaces/Course";
@@ -28,9 +27,7 @@ export function SemesterTab(): JSX.Element {
 
 /*<Tab eventKey="semester_2" title="Semester 2">
                 <SemesterTable></SemesterTable>
-                <ClearSemester></ClearSemester>
             </Tab>
             <Tab eventKey="semester_3" title="Semester 3">
                 <SemesterTable></SemesterTable>
-                <ClearSemester></ClearSemester>
             </Tab>*/
