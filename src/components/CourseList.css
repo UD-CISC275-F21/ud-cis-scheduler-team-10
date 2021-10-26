@@ -1,0 +1,34 @@
+
+
+
+.course-table-head {
+    display: block;
+}
+
+.course-table-body 
+{
+   overflow: auto;
+   height: 400px;
+   display: block;
+}
+
+
+.course-number {
+    width: 86px;
+}
+
+.course-name {
+    width: 279px;
+}
+
+.course-credits {
+    width: 70px;
+}
+
+.course-description {
+    width: 1500px;
+}
+
+.credits {
+    width: 70px;
+}
