@@ -24,10 +24,3 @@ export function SemesterTab(): JSX.Element {
         </Tabs>
     );
 }
-
-/*<Tab eventKey="semester_2" title="Semester 2">
-                <SemesterTable></SemesterTable>
-            </Tab>
-            <Tab eventKey="semester_3" title="Semester 3">
-                <SemesterTable></SemesterTable>
-            </Tab>*/
