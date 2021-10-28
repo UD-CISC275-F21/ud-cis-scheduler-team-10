@@ -21,7 +21,10 @@ export function SemesterTable ({course1, course2, course3}: {course1: Course, co
         setCourseRows([]);
     };
     
-
+    const removeCourseRow = (c: string) => {
+        const newArr = courseRows.filter(courseRow => !courseRow.Number.includes(c));
+        setCourseRows([...newArr]);
+    };
 
     return(
         <Table striped bordered hover variant="dark">
@@ -37,7 +40,7 @@ export function SemesterTable ({course1, course2, course3}: {course1: Course, co
             <tbody>
                 {courseRows.map(post => {
                     return(
-                        <CourseRow key = {post.Number} course1 = {post}></CourseRow>
+                        <CourseRow key = {post.Number} course1 = {post} removeCourse = {() => removeCourseRow(post.Number) }></CourseRow>
                     );
                 })}
             </tbody>
