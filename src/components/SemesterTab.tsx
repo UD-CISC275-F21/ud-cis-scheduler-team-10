@@ -9,12 +9,13 @@ import { SemesterTable } from "./SemesterTable";
 //const courseArray = JSON.parse(JSON.stringify(CourseData));
 
 export function SemesterTab({tab1, tab2, tab3}: {tab1: Semester, tab2: Semester, tab3: Semester}): JSX.Element {
-
+    const [semesterCount, setSemesterCount] = useState(3);
     const [semesters, setSemesters] = useState([tab1, tab2, tab3]);
     const [semesterNumber, setSemesterNumber] = useState(4);
     
 
     const handleAddSemester = () => {
+        setSemesterCount(semesterCount+1);
         setSemesterNumber(semesterNumber + 1);
         const semesterTitle = "Semester " + semesterNumber as string;
 
@@ -33,6 +34,7 @@ export function SemesterTab({tab1, tab2, tab3}: {tab1: Semester, tab2: Semester,
     };
 
     const removeSemester = (c: string) => {
+        setSemesterCount(semesterCount-1);
         setSemesterNumber(semesterNumber-1);
         const newArr = semesters.filter(semester => !semester.Title.includes(c));
         setSemesters([...newArr]);
@@ -40,9 +42,10 @@ export function SemesterTab({tab1, tab2, tab3}: {tab1: Semester, tab2: Semester,
 
     const removeAllSemesters = () =>{
         setSemesters([]);
-        setSemesterNumber(0);
+        setSemesterNumber(1);
+        setSemesterCount(0);
     };
-    if(semesterNumber !== 0){
+    if(semesterCount !== 0){
         return (
             <div>
                 <Tabs defaultActiveKey={semesters[0].Title} id="Semester_tabs" className="mb-3">
