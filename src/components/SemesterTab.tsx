@@ -38,22 +38,37 @@ export function SemesterTab({tab1, tab2, tab3}: {tab1: Semester, tab2: Semester,
         setSemesters([...newArr]);
     };
 
-    return (
-        <Tabs defaultActiveKey={semesters[0].Title} id="Semester_tabs" className="mb-3">
-            {semesters.map(post => {
-                return(
-                    <Tab key = {post.Title} eventKey={post.Title} title={[post.Title, " ", <Button key={post.Title} variant = 'danger' onClick = {() => removeSemester(post.Title)}>X</Button>]}>
-                        <SemesterTable course1 = {post.Course1} course2 = {post.Course2} course3 = {post.Course3}></SemesterTable>
-                    </Tab>
-                );
-            })}
-            <Tab eventKey="add_semester_tab" title={<Button variant = 'success' onClick = {handleAddSemester}>+Add Semester+</Button>}></Tab>
-        </Tabs>
-        
-        
-    );
-}
-
+    const removeAllSemesters = () =>{
+        setSemesters([]);
+        setSemesterNumber(0);
+    };
+    if(semesterNumber !== 0){
+        return (
+            <div>
+                <Tabs defaultActiveKey={semesters[0].Title} id="Semester_tabs" className="mb-3">
+                    {semesters.map(post => {
+                        return(
+                            <Tab key = {post.Title} eventKey={post.Title} title={[post.Title, " ", <Button key={post.Title} variant = 'danger' onClick = {() => removeSemester(post.Title)}>X</Button>]}>
+                                <SemesterTable course1 = {post.Course1} course2 = {post.Course2} course3 = {post.Course3}></SemesterTable>
+                            </Tab>
+                        );
+                    })}
+                    <Tab eventKey="add_semester_tab" title={<Button variant = 'success' onClick = {handleAddSemester}>+Add Semester+</Button>}></Tab>
+                </Tabs>
+                <Button variant = 'danger' onClick = {removeAllSemesters}>-Remove all Semesters-</Button>
+            </div>
+        );
+    } else{
+        return(
+            <div>
+                <Tabs id="Semester_tabs" className="mb-3">
+                    <Tab eventKey="add_semester_tab" title={<Button variant = 'success' onClick = {handleAddSemester}>+Add Semester+</Button>}></Tab>
+                </Tabs>
+                <Button variant = 'danger' onClick = {removeAllSemesters}>-Remove all Semesters-</Button>
+            </div>
+        );
+    }
+} 
 
 /*<Tabs defaultActiveKey="semester_1" id="uncontrolled-tab-example" className="mb-3">
             <Tab eventKey="semester_1" title="Semester 1" >
