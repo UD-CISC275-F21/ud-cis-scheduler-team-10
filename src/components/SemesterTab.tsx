@@ -1,26 +1,79 @@
-import React from "react";
-import { Tab, Tabs } from "react-bootstrap";
-import { SemesterTable } from "./SemesterTable";
-import CourseData from "../data/courses.json";
+import React, { useState } from "react";
+import { Button, Tab, Tabs } from "react-bootstrap";
 import { Course } from "../interfaces/Course";
+import { Semester } from "../interfaces/Semester";
+import { SemesterTable } from "./SemesterTable";
 
 
 
-const courseArray = JSON.parse(JSON.stringify(CourseData));
+//const courseArray = JSON.parse(JSON.stringify(CourseData));
 
-export function SemesterTab(): JSX.Element {
+export function SemesterTab({tab1, tab2, tab3}: {tab1: Semester, tab2: Semester, tab3: Semester}): JSX.Element {
+
+    const [semesters, setSemesters] = useState([tab1, tab2, tab3]);
+    const [semesterNumber, setSemesterNumber] = useState(4);
+    
+
+    const handleAddSemester = () => {
+        setSemesterNumber(semesterNumber + 1);
+        const semesterTitle = "Semester " + semesterNumber as string;
+
+        const newCourse = {} as Course;
+        newCourse.Number = "--";
+        newCourse.Credits = "--";
+        newCourse.Name = "--";
+        newCourse.Description = "--";
+
+        const newSemester = {} as Semester;
+        newSemester.Title = semesterTitle;
+        newSemester.Course1 = newCourse;
+        newSemester.Course2 = newCourse;
+        newSemester.Course3 = newCourse;
+        setSemesters([...semesters,newSemester]);
+    };
+
+    const removeSemester = (c: string) => {
+        setSemesterNumber(semesterNumber-1);
+        const newArr = semesters.filter(semester => !semester.Title.includes(c));
+        setSemesters([...newArr]);
+    };
+
     return (
-        <Tabs defaultActiveKey="semester_1" id="uncontrolled-tab-example" className="mb-3">
-            <Tab eventKey="semester_1" title="Semester 1" >
-                <SemesterTable course1={courseArray[0] as Course} course2={courseArray[1] as Course} course3={courseArray[2] as Course}></SemesterTable>
-            </Tab>
-            <Tab eventKey="semester_2" title="Semester 2">
-                <SemesterTable course1={courseArray[3] as Course} course2={courseArray[4] as Course} course3={courseArray[5] as Course}></SemesterTable>
-            </Tab>
-            <Tab eventKey="semester_3" title="Semester 3">
-                <SemesterTable course1={courseArray[6] as Course} course2={courseArray[7] as Course} course3={courseArray[8] as Course}></SemesterTable>
-            </Tab>
-            
+        <Tabs defaultActiveKey={semesters[0].Title} id="Semester_tabs" className="mb-3">
+            {semesters.map(post => {
+                return(
+                    <Tab key = {post.Title} eventKey={post.Title} title={[post.Title, " ", <Button key={post.Title} variant = 'danger' onClick = {() => removeSemester(post.Title)}>X</Button>]}>
+                        <SemesterTable course1 = {post.Course1} course2 = {post.Course2} course3 = {post.Course3}></SemesterTable>
+                    </Tab>
+                );
+            })}
+            <Tab eventKey="add_semester_tab" title={<Button variant = 'success' onClick = {handleAddSemester}>+Add Semester+</Button>}></Tab>
         </Tabs>
+        
+        
     );
 }
+
+
+/*<Tabs defaultActiveKey="semester_1" id="uncontrolled-tab-example" className="mb-3">
+            <Tab eventKey="semester_1" title="Semester 1" >
+                <SemesterTable courses={[courseArray[0] as Course, courseArray[1] as Course, courseArray[2] as Course]}></SemesterTable>
+            </Tab>
+            <Tab eventKey="semester_2" title="Semester 2">
+                <SemesterTable courses={[courseArray[3] as Course, courseArray[4] as Course, courseArray[5] as Course]}></SemesterTable>
+            </Tab>
+            <Tab eventKey="semester_3" title="Semester 3">
+                <SemesterTable courses={[courseArray[6] as Course, courseArray[7] as Course, courseArray[8] as Course]}></SemesterTable>
+            </Tab>
+        </Tabs>
+
+            {tab1, tab2, tab3}: {tab1: Semester, tab2: Semester, tab3: Semester}
+
+            <Tabs defaultActiveKey={semesters[0].Title} id="Semester_tabs" className="mb-3">
+            {semesters.map(post => {
+                return(
+                    <SingleSemesterTab key = {post.Title} semester = {post}></SingleSemesterTab>
+                );
+            })}
+        </Tabs>
+     */
