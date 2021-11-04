@@ -8,12 +8,33 @@ import { SemesterTable } from "./SemesterTable";
 
 //const courseArray = JSON.parse(JSON.stringify(CourseData));
 
+export const LOCAL_STORAGE_COURSES = 'scheduler-courses';
+
+export function getLocalStorageCourses(): Semester[]|null{
+    let rawCourses: string | null = localStorage.getItem(LOCAL_STORAGE_COURSES);
+    if (rawCourses == null){
+        return(null);
+    }
+    else{
+        return JSON.parse(rawCourses);
+    }
+}
+
 export function SemesterTab({tab1, tab2, tab3}: {tab1: Semester, tab2: Semester, tab3: Semester}): JSX.Element {
+    let loadCourses = getLocalStorageCourses();
     const [semesterCount, setSemesterCount] = useState(3);
-    const [semesters, setSemesters] = useState([tab1, tab2, tab3]);
+    if (loadCourses === null){
+        const [semesters, setSemesters] = useState([tab1, tab2, tab3]);
+    }
+    else{
+        const [semesters, setSemesters] = useState(getLocalStorageCourses());
+    }
     const [semesterNumber, setSemesterNumber] = useState(4);
     
 
+    function save(){
+        localStorage.setItem(LOCAL_STORAGE_COURSES, JSON.stringify(semesters));
+    }
     const handleAddSemester = () => {
         setSemesterCount(semesterCount+1);
         setSemesterNumber(semesterNumber + 1);
