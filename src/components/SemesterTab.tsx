@@ -8,12 +8,27 @@ import { SemesterTable } from "./SemesterTable";
 
 //const courseArray = JSON.parse(JSON.stringify(CourseData));
 
+export const LOCAL_STORAGE_COURSES = "scheduler-courses";
+
+export function getLocalStorageCourses({tab1, tab2, tab3}: {tab1: Semester, tab2: Semester, tab3: Semester}): Semester[]{
+    const rawCourses: string | null = localStorage.getItem(LOCAL_STORAGE_COURSES);
+    if (rawCourses == null) {
+        return[tab1,tab2,tab3];
+    }else {
+        return JSON.parse(rawCourses);
+    }
+}
+
 export function SemesterTab({tab1, tab2, tab3}: {tab1: Semester, tab2: Semester, tab3: Semester}): JSX.Element {
+    const loadCourses = getLocalStorageCourses({tab1, tab2, tab3});
     const [semesterCount, setSemesterCount] = useState(3);
-    const [semesters, setSemesters] = useState([tab1, tab2, tab3]);
     const [semesterNumber, setSemesterNumber] = useState(4);
+    const [semesters, setSemesters] = useState(loadCourses);
     
 
+    function save(){
+        localStorage.setItem(LOCAL_STORAGE_COURSES, JSON.stringify(semesters));
+    }
     const handleAddSemester = () => {
         setSemesterCount(semesterCount+1);
         setSemesterNumber(semesterNumber + 1);
@@ -52,14 +67,15 @@ export function SemesterTab({tab1, tab2, tab3}: {tab1: Semester, tab2: Semester,
                     {semesters.map(post => {
                         return(
                             <Tab key = {post.Title} eventKey={post.Title} title={[post.Title, " ", <Button key={post.Title} variant = 'danger' onClick = {() => removeSemester(post.Title)}>X</Button>]}>
-                                <SemesterTable course1 = {post.Course1} course2 = {post.Course2} course3 = {post.Course3}></SemesterTable>
+                                <SemesterTable course1={post.Course1} course2 = {post.Course2} course3 = {post.Course3}></SemesterTable>
                             </Tab>
                         );
                     })}
                     <Tab eventKey="add_semester_tab" title={<Button variant = 'success' onClick = {handleAddSemester}>+Add Semester+</Button>}></Tab>
                 </Tabs>
                 <Button variant = 'danger' onClick = {removeAllSemesters}>-Remove all Semesters-</Button>
-            </div>
+                <Button variant = 'success' onClick = {save}>Save Courses</Button>
+            </div> 
         );
     } else{
         return(
@@ -68,6 +84,7 @@ export function SemesterTab({tab1, tab2, tab3}: {tab1: Semester, tab2: Semester,
                     <Tab eventKey="add_semester_tab" title={<Button variant = 'success' onClick = {handleAddSemester}>+Add Semester+</Button>}></Tab>
                 </Tabs>
                 <Button variant = 'danger' onClick = {removeAllSemesters}>-Remove all Semesters-</Button>
+                <Button variant = 'success' onClick = {save}>Save Courses</Button>
             </div>
         );
     }

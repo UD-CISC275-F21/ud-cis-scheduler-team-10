@@ -4,6 +4,7 @@ import { Course } from "../interfaces/Course";
 import { Button } from "react-bootstrap";
 import { CourseRow } from "./CourseRow";
 
+
 export function SemesterTable ({course1, course2, course3}: {course1: Course, course2: Course, course3: Course}): JSX.Element{
 
     const [courseRows, setCourseRows] = useState ([course1, course2, course3]);
