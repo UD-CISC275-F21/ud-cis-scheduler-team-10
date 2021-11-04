@@ -20,14 +20,14 @@ export function getLocalStorageCourses({tab1, tab2, tab3}: {tab1: Semester, tab2
 }
 
 export function SemesterTab({tab1, tab2, tab3}: {tab1: Semester, tab2: Semester, tab3: Semester}): JSX.Element {
+    const loadCourses = getLocalStorageCourses({tab1, tab2, tab3});
     const [semesterCount, setSemesterCount] = useState(3);
-    const [semesters, setSemesters] = useState(getLocalStorageCourses({tab1, tab2, tab3}));
     const [semesterNumber, setSemesterNumber] = useState(4);
+    const [semesters, setSemesters] = useState(loadCourses);
     
 
     function save(){
         localStorage.setItem(LOCAL_STORAGE_COURSES, JSON.stringify(semesters));
-        console.log(JSON.stringify(semesters));
     }
     const handleAddSemester = () => {
         setSemesterCount(semesterCount+1);
