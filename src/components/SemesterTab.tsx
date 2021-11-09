@@ -42,9 +42,10 @@ export function SemesterTab({tab1, tab2, tab3}: {tab1: Semester, tab2: Semester,
 
         const newSemester = {} as Semester;
         newSemester.Title = semesterTitle;
-        newSemester.Course1 = newCourse;
-        newSemester.Course2 = newCourse;
-        newSemester.Course3 = newCourse;
+        newSemester.Courses = [newCourse, newCourse, newCourse];
+        //newSemester.Course1 = newCourse;
+        //newSemester.Course2 = newCourse;
+        //newSemester.Course3 = newCourse;
         setSemesters([...semesters,newSemester]);
     };
 
@@ -67,7 +68,7 @@ export function SemesterTab({tab1, tab2, tab3}: {tab1: Semester, tab2: Semester,
                     {semesters.map(post => {
                         return(
                             <Tab key = {post.Title} eventKey={post.Title} title={[post.Title, " ", <Button key={post.Title} variant = 'danger' onClick = {() => removeSemester(post.Title)}>X</Button>]}>
-                                <SemesterTable course1={post.Course1} course2 = {post.Course2} course3 = {post.Course3}></SemesterTable>
+                                <SemesterTable courses={post.Courses}></SemesterTable>
                             </Tab>
                         );
                     })}
