@@ -3,7 +3,7 @@ import { Button, Tab, Table, Tabs } from "react-bootstrap";
 import { Course } from "../interfaces/Course";
 import { Semester } from "../interfaces/Semester";
 import { CourseRow } from "./CourseRow";
-
+import { CSVLink } from "react-csv";
 
 
 
@@ -24,8 +24,8 @@ export function SemesterTab({tab1, tab2, tab3}: {tab1: Semester, tab2: Semester,
     const loadCourses = getLocalStorageCourses({tab1, tab2, tab3});
     const [semesterCount, setSemesterCount] = useState(3);
     const [semesterNumber, setSemesterNumber] = useState(4);
-    const [semesters, setSemesters] = useState(loadCourses);    
-
+    const [semesters, setSemesters] = useState(loadCourses);
+    
     function save(){
         localStorage.setItem(LOCAL_STORAGE_COURSES, JSON.stringify(semesters));
     }
@@ -133,6 +133,9 @@ export function SemesterTab({tab1, tab2, tab3}: {tab1: Semester, tab2: Semester,
                 </Tabs>
                 <Button variant = 'danger' onClick = {removeAllSemesters}>-Remove all Semesters-</Button>
                 <Button variant = 'success' onClick = {save}>Save Courses</Button>
+                <div>
+                    <CSVLink data = {JSON.stringify(semesters,null,2)}>Download to CSV!</CSVLink>
+                </div>
             </div> 
         );
     } else{
