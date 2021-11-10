@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { Button, Tab, Tabs } from "react-bootstrap";
+import { Button, Tab, Table, Tabs } from "react-bootstrap";
 import { Course } from "../interfaces/Course";
 import { Semester } from "../interfaces/Semester";
-import { SemesterTable } from "./SemesterTable";
+import { CourseRow } from "./CourseRow";
+
 
 
 
@@ -23,8 +24,7 @@ export function SemesterTab({tab1, tab2, tab3}: {tab1: Semester, tab2: Semester,
     const loadCourses = getLocalStorageCourses({tab1, tab2, tab3});
     const [semesterCount, setSemesterCount] = useState(3);
     const [semesterNumber, setSemesterNumber] = useState(4);
-    const [semesters, setSemesters] = useState(loadCourses);
-    
+    const [semesters, setSemesters] = useState(loadCourses);    
 
     function save(){
         localStorage.setItem(LOCAL_STORAGE_COURSES, JSON.stringify(semesters));
@@ -61,6 +61,45 @@ export function SemesterTab({tab1, tab2, tab3}: {tab1: Semester, tab2: Semester,
         setSemesterNumber(1);
         setSemesterCount(0);
     };
+
+
+    const handleAddRow = (t: string) => {
+        const newCourse = {} as Course;
+        newCourse.Number = "--";
+        newCourse.Credits = "--";
+        newCourse.Name = "--";
+        newCourse.Description = "--";
+        for (let i = 0; i < semesters.length; i++) {
+            if (semesters[i].Title === t) {
+                const newArr = [...semesters];
+                newArr[i].Courses = [...newArr[i].Courses, newCourse];
+                setSemesters([...newArr]);
+            }
+        }
+    };
+
+    const handleClearAll = (t: string) =>{
+        for (let i = 0; i < semesters.length; i++) {
+            if (semesters[i].Title === t) {
+                const newArr = [...semesters];
+                newArr[i].Courses = [];
+                setSemesters([...newArr]);
+            }
+        }
+    };
+    
+    const removeCourseRow = (t:string, c: string) => {
+        for (let i = 0; i < semesters.length; i++) {
+            if (semesters[i].Title === t) {
+                const newSemesterArr = [...semesters];
+                const newCourseArr = newSemesterArr[i].Courses.filter(courseRow => !courseRow.Number.includes(c));
+                newSemesterArr[i].Courses = [...newCourseArr];
+                setSemesters(newSemesterArr);
+            }
+        }
+    };
+
+
     if(semesterCount !== 0){
         return (
             <div>
@@ -68,7 +107,25 @@ export function SemesterTab({tab1, tab2, tab3}: {tab1: Semester, tab2: Semester,
                     {semesters.map(post => {
                         return(
                             <Tab key = {post.Title} eventKey={post.Title} title={[post.Title, " ", <Button key={post.Title} variant = 'danger' onClick = {() => removeSemester(post.Title)}>X</Button>]}>
-                                <SemesterTable courses={post.Courses}></SemesterTable>
+                                <Table striped bordered hover variant="dark">
+                                    <thead>
+                                        <tr>
+                                            <th>Course Number</th>
+                                            <th>Course Name</th>
+                                            <th>Credits</th>
+                                            <th>Description</th>
+                                            <th><Button variant = 'danger' onClick = {() => handleClearAll(post.Title)}>Remove All Courses</Button></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {post.Courses.map((row: Course) => {
+                                            return(
+                                                <CourseRow key = {row.Number} course1 = {row} removeCourse = {() => removeCourseRow(post.Title, row.Number) }></CourseRow>
+                                            );
+                                        })}
+                                    </tbody>
+                                    <Button variant = 'success' onClick = {() => handleAddRow(post.Title)}>Add Course</Button>
+                                </Table>
                             </Tab>
                         );
                     })}
