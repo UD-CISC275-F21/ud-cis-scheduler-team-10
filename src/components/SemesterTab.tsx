@@ -4,6 +4,7 @@ import { Course } from "../interfaces/Course";
 import { Semester } from "../interfaces/Semester";
 import { CourseRow } from "./CourseRow";
 import { CSVLink } from "react-csv";
+import { EditCourseModal } from "./EditCourseModal";
 
 
 
@@ -25,6 +26,22 @@ export function SemesterTab({tab1, tab2, tab3}: {tab1: Semester, tab2: Semester,
     const [semesterCount, setSemesterCount] = useState(3);
     const [semesterNumber, setSemesterNumber] = useState(4);
     const [semesters, setSemesters] = useState(loadCourses);
+    const [visible, setVisible] = useState(false);
+
+    function editCourse(course: Course, title: string) {
+        for (let i = 0; i < semesters.length; i++) {
+            if (semesters[i].Title === title) {
+                const newArr = [...semesters];
+                for (let j = 0; j<newArr[i].Courses.length; j++) {
+                    if (newArr[i].Courses[j].Number === course.Number) {
+                        newArr[i].Courses[j] = course;
+                        setSemesters([...newArr]);
+                    }
+                }    
+            }
+        }
+        setVisible(true);
+    }
     
     function save(){
         localStorage.setItem(LOCAL_STORAGE_COURSES, JSON.stringify(semesters));
@@ -43,9 +60,6 @@ export function SemesterTab({tab1, tab2, tab3}: {tab1: Semester, tab2: Semester,
         const newSemester = {} as Semester;
         newSemester.Title = semesterTitle;
         newSemester.Courses = [newCourse, newCourse, newCourse];
-        //newSemester.Course1 = newCourse;
-        //newSemester.Course2 = newCourse;
-        //newSemester.Course3 = newCourse;
         setSemesters([...semesters,newSemester]);
     };
 
@@ -120,7 +134,10 @@ export function SemesterTab({tab1, tab2, tab3}: {tab1: Semester, tab2: Semester,
                                     <tbody>
                                         {post.Courses.map((row: Course) => {
                                             return(
-                                                <CourseRow key = {row.Number} course1 = {row} removeCourse = {() => removeCourseRow(post.Title, row.Number) }></CourseRow>
+                                                <div key = {row.Number}>
+                                                    <CourseRow  course1 = {row} removeCourse = {() => removeCourseRow(post.Title, row.Number) } editCourse={() => editCourse(row, post.Title)} semesterTitle={post.Title}></CourseRow>
+                                                    <EditCourseModal visible={visible} setVisible={setVisible} editCourse={() => editCourse(row, post.Title)}  course={row} semesterTitle = {post.Title}></EditCourseModal>
+                                                </div>
                                             );
                                         })}
                                     </tbody>
@@ -136,6 +153,7 @@ export function SemesterTab({tab1, tab2, tab3}: {tab1: Semester, tab2: Semester,
                 <div>
                     <CSVLink data = {JSON.stringify(semesters,null,2)}>Download to CSV!</CSVLink>
                 </div>
+                
             </div> 
         );
     } else{
@@ -150,26 +168,3 @@ export function SemesterTab({tab1, tab2, tab3}: {tab1: Semester, tab2: Semester,
         );
     }
 } 
-
-/*<Tabs defaultActiveKey="semester_1" id="uncontrolled-tab-example" className="mb-3">
-            <Tab eventKey="semester_1" title="Semester 1" >
-                <SemesterTable courses={[courseArray[0] as Course, courseArray[1] as Course, courseArray[2] as Course]}></SemesterTable>
-            </Tab>
-            <Tab eventKey="semester_2" title="Semester 2">
-                <SemesterTable courses={[courseArray[3] as Course, courseArray[4] as Course, courseArray[5] as Course]}></SemesterTable>
-            </Tab>
-            <Tab eventKey="semester_3" title="Semester 3">
-                <SemesterTable courses={[courseArray[6] as Course, courseArray[7] as Course, courseArray[8] as Course]}></SemesterTable>
-            </Tab>
-        </Tabs>
-
-            {tab1, tab2, tab3}: {tab1: Semester, tab2: Semester, tab3: Semester}
-
-            <Tabs defaultActiveKey={semesters[0].Title} id="Semester_tabs" className="mb-3">
-            {semesters.map(post => {
-                return(
-                    <SingleSemesterTab key = {post.Title} semester = {post}></SingleSemesterTab>
-                );
-            })}
-        </Tabs>
-     */
