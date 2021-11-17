@@ -100,12 +100,3 @@ test("add new semester button", () => {
 });
 
 
-
-/*test("test inline editor", () => {
-    render(<App />);
-    const result = screen.getAllByText("CISC108");
-    result[0].click();
-    userEvent.type(result[0], "")
-    expect("Hello World").toBeInTheDocument();
-});*/
-

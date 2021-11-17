@@ -4,7 +4,7 @@ import { Course } from "../interfaces/Course";
 import { Semester } from "../interfaces/Semester";
 import { CourseRow } from "./CourseRow";
 import { CSVLink } from "react-csv";
-import { EditCourseModal } from "./EditCourseModal";
+import {cloneDeep} from "lodash";
 
 
 
@@ -26,21 +26,20 @@ export function SemesterTab({tab1, tab2, tab3}: {tab1: Semester, tab2: Semester,
     const [semesterCount, setSemesterCount] = useState(3);
     const [semesterNumber, setSemesterNumber] = useState(4);
     const [semesters, setSemesters] = useState(loadCourses);
-    const [visible, setVisible] = useState(false);
 
-    function editCourse(course: Course, title: string) {
+
+    function editCourse(oldCourse: Course, newCourse: Course, title: string) {
         for (let i = 0; i < semesters.length; i++) {
             if (semesters[i].Title === title) {
-                const newArr = [...semesters];
+                const newArr = cloneDeep(semesters);
                 for (let j = 0; j<newArr[i].Courses.length; j++) {
-                    if (newArr[i].Courses[j].Number === course.Number) {
-                        newArr[i].Courses[j] = course;
-                        setSemesters([...newArr]);
+                    if (newArr[i].Courses[j].Number === oldCourse.Number) {
+                        newArr[i].Courses[j] = newCourse;
+                        setSemesters(newArr);
                     }
                 }    
             }
         }
-        setVisible(true);
     }
     
     function save(){
@@ -118,9 +117,9 @@ export function SemesterTab({tab1, tab2, tab3}: {tab1: Semester, tab2: Semester,
         return (
             <div>
                 <Tabs defaultActiveKey={semesters[0].Title} id="Semester_tabs" className="mb-3">
-                    {semesters.map(post => {
+                    {semesters.map(semester => {
                         return(
-                            <Tab key = {post.Title} eventKey={post.Title} title={[post.Title, " ", <Button key={post.Title} variant = 'danger' onClick = {() => removeSemester(post.Title)}>X</Button>]}>
+                            <Tab key = {semester.Title} eventKey={semester.Title} title={[semester.Title, " ", <Button key={semester.Title} variant = 'danger' onClick = {() => removeSemester(semester.Title)}>X</Button>]}>
                                 <Table striped bordered hover variant="dark">
                                     <thead>
                                         <tr>
@@ -128,20 +127,20 @@ export function SemesterTab({tab1, tab2, tab3}: {tab1: Semester, tab2: Semester,
                                             <th>Course Name</th>
                                             <th>Credits</th>
                                             <th>Description</th>
-                                            <th><Button variant = 'danger' onClick = {() => handleClearAll(post.Title)}>Remove All Courses</Button></th>
+                                            <th><Button variant = 'danger' onClick = {() => handleClearAll(semester.Title)}>Remove All Courses</Button></th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {post.Courses.map((row: Course) => {
+                                        {semester.Courses.map((course: Course) => {
                                             return(
-                                                <div key = {row.Number}>
-                                                    <CourseRow  course1 = {row} removeCourse = {() => removeCourseRow(post.Title, row.Number) } editCourse={() => editCourse(row, post.Title)} semesterTitle={post.Title}></CourseRow>
-                                                    <EditCourseModal visible={visible} setVisible={setVisible} editCourse={() => editCourse(row, post.Title)}  course={row} semesterTitle = {post.Title}></EditCourseModal>
+                                                <div key = {course.Number}>
+                                                    <CourseRow  course1 = {course} removeCourse = {() => removeCourseRow(semester.Title, course.Number) } editCourse={editCourse} semesterTitle={semester.Title}></CourseRow>
+                                                    
                                                 </div>
                                             );
                                         })}
                                     </tbody>
-                                    <Button variant = 'success' onClick = {() => handleAddRow(post.Title)}>Add Course</Button>
+                                    <Button variant = 'success' onClick = {() => handleAddRow(semester.Title)}>Add Course</Button>
                                 </Table>
                             </Tab>
                         );

@@ -4,7 +4,7 @@ import { Course } from "../interfaces/Course";
 
 export function EditCourseModal({visible, setVisible, editCourse, course, semesterTitle}:
     {visible: boolean, setVisible: (b: boolean) => void,
-    editCourse: (c: Course, t: string) => void, course: Course, semesterTitle: string}): JSX.Element {
+    editCourse: (oldc: Course, newc: Course, t: string) => void, course: Course, semesterTitle: string}): JSX.Element {
     const [courseNumber, setCourseNumber] = useState(course.Number);
     const [courseCredits, setCourseCredits] = useState(course.Credits);
     const [courseName, setCourseName] = useState(course.Name);
@@ -17,7 +17,7 @@ export function EditCourseModal({visible, setVisible, editCourse, course, semest
             Name: courseName,
             Description: courseDescription
         };
-        editCourse(newCourse, semesterTitle);
+        editCourse(course, newCourse, semesterTitle);
         setVisible(false);
     }
 
