@@ -1,23 +1,24 @@
 import React, {useState} from "react";
 import {Button} from "react-bootstrap";
 import { Course } from "../interfaces/Course";
-import InlineEdit from "./InlineEdit";
+import { EditCourseModal } from "./EditCourseModal";
 
 
-export function CourseRow({course1, removeCourse}: {course1:Course, removeCourse: (c: string) => void}): JSX.Element{
-    const [storedCourseNumber1, setStoredCourseNumber1] = useState(course1.Number);
-    const [storedCourseCredit1, setStoredCourseCredit1] = useState(course1.Credits);
-    const [storedCourseName1, setStoredCourseName1] = useState(course1.Name);
-    const [storedCourseDes1, setStoredCourseDes1] = useState(course1.Description);
-    
+export function CourseRow({course1, semesterTitle, removeCourse, editCourse}: {course1:Course, semesterTitle: string, removeCourse: (c: string) => void, editCourse: (oldc: Course, newc: Course, t: string) => void}): JSX.Element{
+    const [visible, setVisible] = useState(false);
+
     return(
-        <tr>
-            <td><InlineEdit text={storedCourseNumber1} onSetText={text => setStoredCourseNumber1(text)}/></td>
-            <td><InlineEdit text={storedCourseName1} onSetText={text => setStoredCourseName1(text)}/></td>
-            <td><InlineEdit text={storedCourseCredit1} onSetText={text => setStoredCourseCredit1(text)}/></td>
-            <td><InlineEdit text={storedCourseDes1} onSetText={text => setStoredCourseDes1(text)}/></td>
-            <td><Button variant = 'danger' onClick = {() => removeCourse(storedCourseNumber1)}>Clear Course</Button></td>
-        </tr>
+        <div>
+            <tr>
+                <td>{course1.Number}</td>
+                <td>{course1.Credits}</td>
+                <td>{course1.Name}</td>
+                <td>{course1.Description}</td>
+                <td><Button variant='success' onClick = {() => setVisible(true)}>Edit Course</Button></td>
+                <td><Button variant = 'danger' onClick = {() => removeCourse(course1.Number)}>Clear Course</Button></td>
+            </tr>
+            <EditCourseModal visible={visible} setVisible={setVisible} editCourse={ editCourse}  course={course1} semesterTitle = {semesterTitle}></EditCourseModal>
+        </div>
     );
 
 }
