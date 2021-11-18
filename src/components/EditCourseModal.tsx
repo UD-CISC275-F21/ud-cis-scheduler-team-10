@@ -31,26 +31,26 @@ export function EditCourseModal({visible, setVisible, editCourse, course, semest
             <Modal.Body>
                 <Form>
                     <Form.Group className="mb-3" controlId="editCourseForm.courseNumberArea">
-                        <Form.Label>Course Number</Form.Label>
-                        <Form.Control as="textarea" rows={3}
+                        <Form.Label >Course Number</Form.Label>
+                        <Form.Control as="textarea" rows={3} data-testid = "modal_course_number_textbox"
                             value={courseNumber}
                             onChange={(ev: React.ChangeEvent<HTMLTextAreaElement>) => setCourseNumber(ev.target.value)}/>
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="editCourseForm.courseCreditsArea">
                         <Form.Label>Credits</Form.Label>
-                        <Form.Control as="textarea" rows={3} 
+                        <Form.Control as="textarea" rows={3} data-testid = "modal_course_credits_textbox"
                             value={courseCredits}
                             onChange={(ev: React.ChangeEvent<HTMLTextAreaElement>) => setCourseCredits(ev.target.value)}/>
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="editCourseForm.courseNameArea">
                         <Form.Label>Course Name</Form.Label>
-                        <Form.Control as="textarea" rows={3} 
+                        <Form.Control as="textarea" rows={3} data-testid = "modal_course_name_textbox"
                             value={courseName}
                             onChange={(ev: React.ChangeEvent<HTMLTextAreaElement>) => setCourseName(ev.target.value)}/>
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="editCourseForm.courseDescriptionArea">
                         <Form.Label>Course Description</Form.Label>
-                        <Form.Control as="textarea" rows={3} 
+                        <Form.Control as="textarea" rows={3} data-testid = "modal_course_description_textbox"
                             value={courseDescription}
                             onChange={(ev: React.ChangeEvent<HTMLTextAreaElement>) => setCourseDescription(ev.target.value)}/>
                     </Form.Group>
