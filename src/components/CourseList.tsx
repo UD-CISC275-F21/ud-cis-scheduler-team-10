@@ -20,13 +20,13 @@ export function CourseList (): JSX.Element {
                     </tr>
                 </thead>
                 <tbody className="course-table-body">
-                    { Courses.map(post => {
+                    { Courses.map(course => {
                         return(
-                            <tr key={post.Number}>
-                                <td>{ post.Number }</td>
-                                <td>{ post.Name }</td>
-                                <td className="credits">{ post.Credits }</td>
-                                <td>{ post.Description }</td>
+                            <tr key={course.Number}>
+                                <td>{ course.Number }</td>
+                                <td>{ course.Name }</td>
+                                <td className="credits">{ course.Credits }</td>
+                                <td>{ course.Description }</td>
                             </tr>
                         );
                     })}
