@@ -121,36 +121,44 @@ export function SemesterTab({tab1, tab2, tab3}: {tab1: Semester, tab2: Semester,
                         return(
                             <Tab key = {semester.Title} eventKey={semester.Title} title={[semester.Title, " ", <Button key={semester.Title} variant = 'danger' onClick = {() => removeSemester(semester.Title)}>X</Button>]}>
                                 <Table striped bordered hover variant="dark">
-                                    <thead>
-                                        <tr>
-                                            <th>Course Number</th>
-                                            <th>Course Name</th>
-                                            <th>Credits</th>
-                                            <th>Description</th>
-                                            <th><Button variant = 'danger' onClick = {() => handleClearAll(semester.Title)}>Remove All Courses</Button></th>
-                                        </tr>
-                                    </thead>
                                     <tbody>
                                         {semester.Courses.map((course: Course) => {
                                             return(
                                                 <div key = {course.Number}>
                                                     <CourseRow  course1 = {course} removeCourse = {() => removeCourseRow(semester.Title, course.Number) } editCourse={editCourse} semesterTitle={semester.Title}></CourseRow>
-                                                    
                                                 </div>
                                             );
                                         })}
                                     </tbody>
+                                    <div>
+                                        <p></p>
+                                    </div>
                                     <Button variant = 'success' onClick = {() => handleAddRow(semester.Title)}>Add Course</Button>
                                 </Table>
+                                <Button variant = 'danger' onClick = {() => handleClearAll(semester.Title)}>Remove All Courses</Button>
+                                <div> 
+                                    <p></p>
+                                </div>
                             </Tab>
                         );
                     })}
                     <Tab eventKey="add_semester_tab" title={<Button variant = 'success' onClick = {handleAddSemester}>+Add Semester+</Button>}></Tab>
                 </Tabs>
                 <Button variant = 'danger' onClick = {removeAllSemesters}>-Remove all Semesters-</Button>
+                <div>
+                    <p></p>
+                </div>
                 <Button variant = 'success' onClick = {save}>Save Courses</Button>
                 <div>
-                    <CSVLink data = {JSON.stringify(semesters,null,2)}>Download to CSV!</CSVLink>
+                    <p></p>
+                </div>
+                <div>
+                    <Button variant = 'info'>
+                        <CSVLink data = {JSON.stringify(semesters,null,2)}>Download to CSV!</CSVLink>
+                    </Button>
+                    <div>
+                        <p></p>
+                    </div>
                 </div>
                 
             </div> 
@@ -162,6 +170,9 @@ export function SemesterTab({tab1, tab2, tab3}: {tab1: Semester, tab2: Semester,
                     <Tab eventKey="add_semester_tab" title={<Button variant = 'success' onClick = {handleAddSemester}>+Add Semester+</Button>}></Tab>
                 </Tabs>
                 <Button variant = 'danger' onClick = {removeAllSemesters}>-Remove all Semesters-</Button>
+                <div>
+                    <p></p>
+                </div>
                 <Button variant = 'success' onClick = {save}>Save Courses</Button>
             </div>
         );
