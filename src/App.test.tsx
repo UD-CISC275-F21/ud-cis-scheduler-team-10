@@ -79,6 +79,12 @@ test("renders initial input courses", () => {
     expect(linkElement[0]).toBeInTheDocument();
 });
 
+test("renders CSV download button", () => {
+    render(<App />);
+    const linkElement = screen.getAllByText(/Download to CSV/i);
+    expect(linkElement[0]).toBeInTheDocument();
+});
+
 test("add new course button", () => {
     render(<App />);
     const oldCourse = screen.queryByText("--");
@@ -99,4 +105,73 @@ test("add new semester button", () => {
     expect(newSemester[0]).toBeInTheDocument();
 });
 
+test("remove course button", () => {
+    render(<App />);
+    const oldCourse = screen.queryByText("CISC 108");
+    const removeCourseButton = screen.getAllByText("Clear Course");
+    removeCourseButton[0].click();
+    expect(oldCourse).toBeNull();
+});
+
+test("remove semester button", () => {
+    render(<App />);
+    const oldSemester = screen.queryByText("semester 1");
+    const removeSemesterButton = screen.getAllByText("X");
+    removeSemesterButton[0].click();
+    expect(oldSemester).toBeNull();
+});
+
+test("remove all courses", () => {
+    render(<App />);
+    const oldCourse1 = screen.queryByText("CISC 108");
+    const oldCourse3 = screen.queryByText("EGGG 101");
+    const oldCourse2 = screen.queryByText("CISC 181");
+    const removeAllCoursesButton = screen.getAllByText("Remove All Courses");
+    removeAllCoursesButton[0].click();
+    expect(oldCourse1).toBeNull();
+    expect(oldCourse2).toBeNull();
+    expect(oldCourse3).toBeNull();
+});
+
+test("remove all semesters", () => {
+    render(<App />);
+    const oldSemester1 = screen.queryByText("semester 1");
+    const oldSemester2 = screen.queryByText("semester 2");
+    const oldSemester3 = screen.queryByText("semester 3");
+    const removeAllSemestersButton = screen.getAllByText("-Remove all Semesters-");
+    removeAllSemestersButton[0].click();
+    expect(oldSemester1).toBeNull();
+    expect(oldSemester2).toBeNull();
+    expect(oldSemester3).toBeNull();
+});
+
+test("help modal window", () => {
+    render(<App />);
+    const helpModalButton = screen.getAllByText("Need help?");
+    helpModalButton[0].click();
+    const helpText = screen.queryByText("About UD CIS Scheduler");
+    expect(helpText).toBeInTheDocument();
+});
+
+test("edit course modal", () => {
+    render(<App />);
+    const editModalButton = screen.getAllByText("Edit Course");
+    editModalButton[0].click();
+    const saveEdit = screen.queryByText("Save changes");
+    const closeModal = screen.queryByText("Close");
+    expect(saveEdit).toBeInTheDocument();
+    expect(closeModal).toBeInTheDocument();
+});
+
+test("save courses button", () => {
+    render(<App />);
+    const addButton = screen.getAllByText("Add Course");
+    addButton[0].click();
+    const savedCourse = screen.getAllByText("--");
+    const saveButton = screen.getAllByText("Save Courses");
+    saveButton[0].click();
+    render(<App />);
+    expect(savedCourse[0]).toBeInTheDocument();
+
+});
 
