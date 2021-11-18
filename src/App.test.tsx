@@ -1,6 +1,7 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import App from "./App";
+import userEvent from '@testing-library/user-event'
 
 test("renders UD CIS Scheduler text", () => {
     render(<App />);
@@ -175,3 +176,35 @@ test("save courses button", () => {
 
 });
 
+test("edit the course by clicking the edit button", () => {
+    render(<App />);
+    const button = screen.getAllByText("Edit Course");
+    button[0].click();
+    const element1 = screen.getAllByTestId("modal_course_number_textbox");
+    expect(element1[0].textContent).toEqual("CISC108");
+    userEvent.type(element1[0], "{selectall}{backspace}Hello");
+
+    const element2 = screen.getAllByTestId("modal_course_credits_textbox");
+    expect(element2[0].textContent).toEqual("3");
+    userEvent.type(element2[0], "{selectall}{backspace}World");
+
+    const element3 = screen.getAllByTestId("modal_course_name_textbox");
+    expect(element3[0].textContent).toEqual("Introduction to Programming");
+    userEvent.type(element3[0], "{selectall}{backspace}Nice");
+
+    const element4 = screen.getAllByTestId("modal_course_description_textbox");
+    expect(element4[0].textContent).toEqual("Computing and principles of programming with an emphasis on systematic program design. Topics include functional programming, data abstraction, procedural abstraction, use of control and state, recursion, testing, and object-oriented programming concepts. Requires no prior programming experience, open to any major, but intended primarily for majors and minors in computer science or mathematics.");
+    userEvent.type(element4[0], "{selectall}{backspace}Day");
+
+    const button2 = screen.getAllByTestId("save-changes-button");
+    button2[0].click();
+
+    const newNumber = screen.getAllByText("Hello");
+    const newCredit = screen.getAllByText("World");
+    const newName = screen.getAllByText("Nice");
+    const newDescription = screen.getAllByText("Day");
+    expect(newNumber[0]).toBeInTheDocument();
+    expect(newCredit[0]).toBeInTheDocument();
+    expect(newName[0]).toBeInTheDocument();
+    expect(newDescription[0]).toBeInTheDocument();
+});
