@@ -110,7 +110,7 @@ test("remove course button", () => {
     const oldCourse = screen.queryByText("CISC 108");
     const removeCourseButton = screen.getAllByText("Clear Course");
     removeCourseButton[0].click();
-    expect(oldCourse).toBeNull()
+    expect(oldCourse).toBeNull();
 });
 
 test("remove semester button", () => {
