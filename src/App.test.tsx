@@ -81,7 +81,7 @@ test("renders initial input courses", () => {
 
 test("renders CSV download button", () => {
     render(<App />);
-    const linkElement = screen.getAllByText(/Download to CSV/i)
+    const linkElement = screen.getAllByText(/Download to CSV/i);
     expect(linkElement[0]).toBeInTheDocument();
 });
 
