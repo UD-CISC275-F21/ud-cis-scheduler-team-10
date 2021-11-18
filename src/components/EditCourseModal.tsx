@@ -31,7 +31,7 @@ export function EditCourseModal({visible, setVisible, editCourse, course, semest
             <Modal.Body>
                 <Form>
                     <Form.Group className="mb-3" controlId="editCourseForm.courseNumberArea">
-                        <Form.Label data-testid="prompt-entry-textbox">Course Number</Form.Label>
+                        <Form.Label>Course Number</Form.Label>
                         <Form.Control as="textarea" rows={3}
                             value={courseNumber}
                             onChange={(ev: React.ChangeEvent<HTMLTextAreaElement>) => setCourseNumber(ev.target.value)}/>

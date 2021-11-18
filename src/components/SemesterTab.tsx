@@ -12,19 +12,19 @@ import {cloneDeep} from "lodash";
 
 export const LOCAL_STORAGE_COURSES = "scheduler-courses";
 
-export function getLocalStorageCourses({tab1, tab2, tab3}: {tab1: Semester, tab2: Semester, tab3: Semester}): Semester[]{
+export function getLocalStorageCourses({semester1, semester2, semester3}: {semester1: Semester, semester2: Semester, semester3: Semester}): Semester[]{
     const rawCourses: string | null = localStorage.getItem(LOCAL_STORAGE_COURSES);
     if (rawCourses == null) {
-        return[tab1,tab2,tab3];
+        return[semester1,semester2,semester3];
     }else {
         return JSON.parse(rawCourses);
     }
 }
 
-export function SemesterTab({tab1, tab2, tab3}: {tab1: Semester, tab2: Semester, tab3: Semester}): JSX.Element {
-    const loadCourses = getLocalStorageCourses({tab1, tab2, tab3});
-    const [semesterCount, setSemesterCount] = useState(3);
-    const [semesterNumber, setSemesterNumber] = useState(4);
+export function SemesterTab({semester1, semester2, semester3}: {semester1: Semester, semester2: Semester, semester3: Semester}): JSX.Element {
+    const loadCourses = getLocalStorageCourses({semester1, semester2, semester3});
+    const [semesterCount, setSemesterCount] = useState(loadCourses.length);
+    const [semesterNumber, setSemesterNumber] = useState(loadCourses.length + 1);
     const [semesters, setSemesters] = useState(loadCourses);
 
 
@@ -45,8 +45,9 @@ export function SemesterTab({tab1, tab2, tab3}: {tab1: Semester, tab2: Semester,
     function save(){
         localStorage.setItem(LOCAL_STORAGE_COURSES, JSON.stringify(semesters));
     }
+
     const handleAddSemester = () => {
-        setSemesterCount(semesterCount+1);
+        setSemesterCount(semesterCount + 1);
         setSemesterNumber(semesterNumber + 1);
         const semesterTitle = "Semester " + semesterNumber as string;
 
@@ -125,7 +126,7 @@ export function SemesterTab({tab1, tab2, tab3}: {tab1: Semester, tab2: Semester,
                                         {semester.Courses.map((course: Course) => {
                                             return(
                                                 <div key = {course.Number}>
-                                                    <CourseRow  course1 = {course} removeCourse = {() => removeCourseRow(semester.Title, course.Number) } editCourse={editCourse} semesterTitle={semester.Title}></CourseRow>
+                                                    <CourseRow  course = {course} removeCourse = {() => removeCourseRow(semester.Title, course.Number) } editCourse={editCourse} semesterTitle={semester.Title}></CourseRow>
                                                 </div>
                                             );
                                         })}

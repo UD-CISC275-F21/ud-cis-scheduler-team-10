@@ -32,7 +32,7 @@ function App(): JSX.Element {
 
             <h1>UD CIS Scheduler</h1>
             <WelcomeModal></WelcomeModal>
-            <SemesterTab tab1={semester1} tab2={semester2} tab3={semester3}></SemesterTab>
+            <SemesterTab semester1={semester1} semester2={semester2} semester3={semester3}></SemesterTab>
             <div>
                 <h2>Course List</h2>
                 <CourseList></CourseList>
