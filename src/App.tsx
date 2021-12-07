@@ -2,7 +2,7 @@ import React from "react";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { SemesterTab } from "./components/SemesterTab";
-import { CourseList } from "./components/CourseList";
+//import { CourseList } from "./components/CourseList";
 import {WelcomeModal} from "./components/WelcomeModal";
 import CourseData from "./data/courses.json";
 import { Semester } from "./interfaces/Semester";
@@ -52,10 +52,7 @@ function App(): JSX.Element {
             <h1>UD CIS Scheduler</h1>
             <WelcomeModal></WelcomeModal>
             <SemesterTab semester1={semester1} semester2={semester2} semester3={semester3} semester4 = {semester4} semester5 = {semester5} semester6 = {semester6} semester7 = {semester7} semester8 = {semester8}></SemesterTab>
-            <div>
-                <h2>Course List</h2>
-                <CourseList></CourseList>
-            </div>
+            
         </div>
     );
 }

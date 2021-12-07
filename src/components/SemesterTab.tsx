@@ -5,6 +5,7 @@ import { Semester } from "../interfaces/Semester";
 import { CourseRow } from "./CourseRow";
 import { CSVLink } from "react-csv";
 import {cloneDeep} from "lodash";
+import { CourseList } from "./CourseList";
 
 
 
@@ -26,7 +27,6 @@ export function SemesterTab({semester1, semester2, semester3, semester4, semeste
     const [semesterCount, setSemesterCount] = useState(loadCourses.length);
     const [semesterNumber, setSemesterNumber] = useState(loadCourses.length + 1);
     const [semesters, setSemesters] = useState(loadCourses);
-
 
     function editCourse(oldCourse: Course, newCourse: Course, title: string) {
         for (let i = 0; i < semesters.length; i++) {
@@ -113,6 +113,15 @@ export function SemesterTab({semester1, semester2, semester3, semester4, semeste
         }
     };
 
+    const addToSemester = (semesterTitle: string, newCourse: Course) => {
+        for (let i = 0; i < semesters.length; i++) {
+            if (semesters[i].Title === semesterTitle) {
+                const newArr = [...semesters];
+                newArr[i].Courses = [...newArr[i].Courses, newCourse];
+                setSemesters([...newArr]);
+            }
+        }
+    };
 
     if(semesterCount !== 0){
         return (
@@ -161,6 +170,11 @@ export function SemesterTab({semester1, semester2, semester3, semester4, semeste
                         <p></p>
                     </div>
                 </div>
+
+                <div>
+                    <h2>Course List</h2>
+                    <CourseList semesters={semesters} addToSemester={addToSemester}></CourseList>
+                </div>
                 
             </div> 
         );
@@ -175,6 +189,11 @@ export function SemesterTab({semester1, semester2, semester3, semester4, semeste
                     <p></p>
                 </div>
                 <Button variant = 'success' onClick = {save}>Save Courses</Button>
+
+                <div>
+                    <h2>Course List</h2>
+                    <CourseList semesters={semesters} addToSemester={addToSemester}></CourseList>
+                </div>
             </div>
         );
     }
