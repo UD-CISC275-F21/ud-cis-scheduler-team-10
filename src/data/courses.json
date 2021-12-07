@@ -390,5 +390,75 @@
       "Credits": "3",
       "Name": "Introduction to Philosophy",
       "Description": "This course is an analytic introduction to Philosophy through the study of the Philosophy of Religion, Epistemology, Metaphysics and Ethics.  Among the questions we will consider are the following: Does God exist?  Can we know that an external world exists?  Is any belief about the future rational?  What is the relationship between the mind and brain?  What, if anything, makes our actions right or wrong?  Doe we ever act freely?  Readings will be from both historical and contemporary sources."
+  },
+  {
+      "ID":"57",
+      "Number":"Breadth Requirement",
+      "Credits":"2-4",
+      "Name":"Breadth Requirement",
+      "Description":" knowledge across diverse fields and perspectives."
+  },
+  {
+      "ID":"58",
+      "Number":"Multicultural Breadth Requirement",
+      "Credits":"2-4",
+      "Name":"Multicultural Breadth Requirement",
+      "Description":"knowledge across diverse fields and perspectives."
+  },
+  {
+      "ID":"59",
+      "Number":"Science Requirement",
+      "Credits":"2-4",
+      "Name":"Science Requirement",
+      "Description": "Lab Science including Biology, Chemistry, Geology or Physics"
+  },
+  {
+      "ID":"60",
+      "Number":"Free Elective",
+      "Credits":"2-4",
+      "Name":"Free Elective",
+      "Description":"Free Elective to Earn Credits for Degree Completion."
+  },
+  {
+      "ID":"61",
+      "Number":"CISC304",
+      "Credits":"3",
+      "Name":"Logic for Programming",
+      "Description":"Propositional and predicate logic for general reasoning and advanced applications in knowledge representation in artificial intelligence and database, program correctness and programming semantics. Models, resolution, logic programming, and natural deduction."
+  },
+  {
+      "ID":"62",
+      "Number":"ENGL312",
+      "Credits":"3",
+      "Name":"Written Communications in Business",
+      "Description":"Examines the role of written communication in corporate decision making. Students write memos, letters, proposals and reports that simulate on-the-job communication tasks, and are encouraged to use materials from their fields of specialization."
+  },
+  {
+      "ID":"63",
+      "Number":"Concentration Requirement",
+      "Credits":"2-4",
+      "Name":"Concentration Requirement",
+      "Description":"Course Designed to Deep Dive into a Specific Field"
+  },
+  {
+      "ID":"64",
+      "Number":"UNIV401",
+      "Credits":"2-4",
+      "Name":"Senior Thesis",
+      "Description":"Senior thesis for students working toward a degree with distinction." 
+  },
+  {
+      "ID":"65",
+      "Number":"CISC 300-Level Technical Elective",
+      "Credits":"2-4",
+      "Name":"CISC 300-Level Technical Elective",
+      "Description":"Upper Level CISC Technical Elective"
+  },
+  {
+      "ID":"66",
+      "Number":"UNIV402",
+      "Credits":"2-4",
+      "Name":"Senior Thesis",
+      "Description":"Continuation of UNIV401."
   }
 ]
