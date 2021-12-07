@@ -12,17 +12,17 @@ import {cloneDeep} from "lodash";
 
 export const LOCAL_STORAGE_COURSES = "scheduler-courses";
 
-export function getLocalStorageCourses({semester1, semester2, semester3}: {semester1: Semester, semester2: Semester, semester3: Semester}): Semester[]{
+export function getLocalStorageCourses({semester1, semester2, semester3, semester4, semester5, semester6, semester7, semester8}: {semester1: Semester, semester2: Semester, semester3: Semester, semester4: Semester, semester5: Semester, semester6: Semester, semester7: Semester, semester8: Semester}): Semester[]{
     const rawCourses: string | null = localStorage.getItem(LOCAL_STORAGE_COURSES);
     if (rawCourses == null) {
-        return[semester1,semester2,semester3];
+        return[semester1,semester2,semester3,semester4, semester5, semester6, semester7, semester8];
     }else {
         return JSON.parse(rawCourses);
     }
 }
 
-export function SemesterTab({semester1, semester2, semester3}: {semester1: Semester, semester2: Semester, semester3: Semester}): JSX.Element {
-    const loadCourses = getLocalStorageCourses({semester1, semester2, semester3});
+export function SemesterTab({semester1, semester2, semester3, semester4, semester5, semester6, semester7, semester8}: {semester1: Semester, semester2: Semester, semester3: Semester, semester4: Semester, semester5: Semester, semester6: Semester, semester7: Semester, semester8: Semester}): JSX.Element {
+    const loadCourses = getLocalStorageCourses({semester1, semester2, semester3, semester4, semester5, semester6, semester7, semester8});
     const [semesterCount, setSemesterCount] = useState(loadCourses.length);
     const [semesterNumber, setSemesterNumber] = useState(loadCourses.length + 1);
     const [semesters, setSemesters] = useState(loadCourses);
