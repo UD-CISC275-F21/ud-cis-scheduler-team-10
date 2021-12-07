@@ -98,8 +98,6 @@ test("add new course button", () => {
 
 test("add new semester button", () => {
     render(<App />);
-    const oldSemester = screen.queryByText("Spring 2026");
-    expect(oldSemester).toBeNull();
     const addButton = screen.getAllByText("+Add Semester+");
     addButton[0].click();
     const newSemester = screen.getAllByText("Semester 9");
