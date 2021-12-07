@@ -9,13 +9,15 @@ export function EditCourseModal({visible, setVisible, editCourse, course, semest
     const [courseCredits, setCourseCredits] = useState(course.Credits);
     const [courseName, setCourseName] = useState(course.Name);
     const [courseDescription, setCourseDescription] = useState(course.Description);
+    const [coursePrereq, setCoursePrereq] = useState(course.Prereq);
 
     function saveCourse() {
         const newCourse = {
             Number: courseNumber,
             Credits: courseCredits,
             Name: courseName,
-            Description: courseDescription
+            Description: courseDescription,
+            Prereq: coursePrereq
         };
         editCourse(course, newCourse, semesterTitle);
         setVisible(false);

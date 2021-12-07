@@ -27,6 +27,7 @@ export function CourseRow({course, semesterTitle, removeCourse, editCourse}: {co
                         <td>{course.Description}</td>
                         <td><Button variant='success' onClick = {() => setVisible(true)}>Edit Course</Button></td>
                         <td><Button variant = 'danger' onClick = {() => removeCourse(course.Number)}>Clear Course</Button></td>
+                        <td><Button variant = 'success'>Prerequisites</Button></td>
                     </tr>
                     <EditCourseModal visible={visible} setVisible={setVisible} editCourse={ editCourse}  course={course} semesterTitle = {semesterTitle}></EditCourseModal>
                 </tbody>
