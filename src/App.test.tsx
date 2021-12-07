@@ -23,9 +23,9 @@ test("renders help button", () => {
 
 test("renders Semester tabs", () => {
     render(<App />);
-    const linkElement1 = screen.getByText(/Semester 1/i);
-    const linkElement2 = screen.getByText(/Semester 2/i);
-    const linkElement3 = screen.getByText(/Semester 3/i);
+    const linkElement1 = screen.getByText(/Fall 2022/i);
+    const linkElement2 = screen.getByText(/Spring 2023/i);
+    const linkElement3 = screen.getByText(/Fall 2023/i);
     expect(linkElement1).toBeInTheDocument();
     expect(linkElement2).toBeInTheDocument();
     expect(linkElement3).toBeInTheDocument();
@@ -98,11 +98,11 @@ test("add new course button", () => {
 
 test("add new semester button", () => {
     render(<App />);
-    const oldSemester = screen.queryByText("Semester 4");
+    const oldSemester = screen.queryByText("Spring 2026");
     expect(oldSemester).toBeNull();
     const addButton = screen.getAllByText("+Add Semester+");
     addButton[0].click();
-    const newSemester = screen.getAllByText("Semester 4");
+    const newSemester = screen.getAllByText("Semester 9");
     expect(newSemester[0]).toBeInTheDocument();
 });
 
