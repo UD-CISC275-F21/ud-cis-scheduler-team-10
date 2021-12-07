@@ -26,9 +26,19 @@ test("renders Semester tabs", () => {
     const linkElement1 = screen.getByText(/Fall 2022/i);
     const linkElement2 = screen.getByText(/Spring 2023/i);
     const linkElement3 = screen.getByText(/Fall 2023/i);
+    const linkElement4 = screen.getByText(/Spring 2024/i);
+    const linkElement5 = screen.getByText(/Fall 2024/i);
+    const linkElement6 = screen.getByText(/Spring 2025/i);
+    const linkElement7 = screen.getByText(/Fall 2025/i);
+    const linkElement8 = screen.getByText(/Spring 2026/i);
     expect(linkElement1).toBeInTheDocument();
     expect(linkElement2).toBeInTheDocument();
     expect(linkElement3).toBeInTheDocument();
+    expect(linkElement4).toBeInTheDocument();
+    expect(linkElement5).toBeInTheDocument();
+    expect(linkElement6).toBeInTheDocument();
+    expect(linkElement7).toBeInTheDocument();
+    expect(linkElement8).toBeInTheDocument();
 });
 
 test("renders Add Semester button", () => {
@@ -114,7 +124,7 @@ test("remove course button", () => {
 
 test("remove semester button", () => {
     render(<App />);
-    const oldSemester = screen.queryByText("semester 1");
+    const oldSemester = screen.queryByText("fall 2022");
     const removeSemesterButton = screen.getAllByText("X");
     removeSemesterButton[0].click();
     expect(oldSemester).toBeNull();
@@ -134,14 +144,24 @@ test("remove all courses", () => {
 
 test("remove all semesters", () => {
     render(<App />);
-    const oldSemester1 = screen.queryByText("semester 1");
-    const oldSemester2 = screen.queryByText("semester 2");
-    const oldSemester3 = screen.queryByText("semester 3");
+    const oldSemester1 = screen.queryByText("fall 2022");
+    const oldSemester2 = screen.queryByText("spring 2023");
+    const oldSemester3 = screen.queryByText("fall 2023");
+    const oldSemester4 = screen.queryByText("spring 2024");
+    const oldSemester5 = screen.queryByText("fall 2024");
+    const oldSemester6 = screen.queryByText("spring 2025");
+    const oldSemester7 = screen.queryByText("fall 2025");
+    const oldSemester8 = screen.queryByText("spring 2026");
     const removeAllSemestersButton = screen.getAllByText("-Remove all Semesters-");
     removeAllSemestersButton[0].click();
     expect(oldSemester1).toBeNull();
     expect(oldSemester2).toBeNull();
     expect(oldSemester3).toBeNull();
+    expect(oldSemester4).toBeNull();
+    expect(oldSemester5).toBeNull();
+    expect(oldSemester6).toBeNull();
+    expect(oldSemester7).toBeNull();
+    expect(oldSemester8).toBeNull();
 });
 
 test("help modal window", () => {
