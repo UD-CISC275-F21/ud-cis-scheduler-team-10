@@ -56,6 +56,12 @@ export function EditCourseModal({visible, setVisible, editCourse, course, semest
                             value={courseDescription}
                             onChange={(ev: React.ChangeEvent<HTMLTextAreaElement>) => setCourseDescription(ev.target.value)}/>
                     </Form.Group>
+                    <Form.Group className="mb-3" controlId="editCourseForm.coursePrereqArea">
+                        <Form.Label>Prerequisites</Form.Label>
+                        <Form.Control as="textarea" rows={3} data-testid = "modal_course_Prereq_textbox"
+                            value={coursePrereq}
+                            onChange={(ev: React.ChangeEvent<HTMLTextAreaElement>) => setCoursePrereq(ev.target.value)}/>
+                    </Form.Group>
                 </Form>
             </Modal.Body>
 
