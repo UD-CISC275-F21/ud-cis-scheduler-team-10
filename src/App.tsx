@@ -9,6 +9,7 @@ import { Semester } from "./interfaces/Semester";
 import { Course } from "./interfaces/Course";
 
 
+
 const courseArray = JSON.parse(JSON.stringify(CourseData));
 
 function App(): JSX.Element {
@@ -45,13 +46,12 @@ function App(): JSX.Element {
     const semester8 = {} as Semester;
     semester8.Title = "Spring 2026";
     semester8.Courses = [courseArray[47] as Course, courseArray[65] as Course, courseArray[64] as Course, courseArray[59] as Course, courseArray[59] as Course];
-
     return (
         <div className="App">
 
             <h1>UD CIS Scheduler</h1>
             <WelcomeModal></WelcomeModal>
-            <SemesterTab semester1={semester1} semester2={semester2} semester3={semester3} semester4 = {semester4} semester5 = {semester5} semester6 = {semester6} semester7 = {semester7} semester8 = {semester8}></SemesterTab>
+            <SemesterTab semester1={semester1} semester2={semester2} semester3={semester3} semester4 = {semester4} semester5 = {semester5} semester6 = {semester6} semester7 = {semester7} semester8 = {semester8} ></SemesterTab>
             <div>
                 <h2>Course List</h2>
                 <CourseList></CourseList>
