@@ -77,10 +77,12 @@ test("renders semester table titles and course list titles", () => {
     const linkElement2 = screen.getAllByText(/Course Name/i);
     const linkElement3 = screen.getAllByText(/Credits/i);
     const linkElement4 = screen.getAllByText(/Description/i);
+    const linkElement5 = screen.getAllByText(/Prerequisites/i);
     expect(linkElement1[0]).toBeInTheDocument();
     expect(linkElement2[0]).toBeInTheDocument();
     expect(linkElement3[0]).toBeInTheDocument();
     expect(linkElement4[0]).toBeInTheDocument();
+    expect(linkElement5[0]).toBeInTheDocument();
 });
 
 test("renders initial input courses", () => {
