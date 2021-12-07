@@ -17,6 +17,7 @@ export function CourseList (): JSX.Element {
                         <th className="course-name">Course Name</th>
                         <th className="course-credits">Credits</th>
                         <th className="course-description">Description</th>
+                        <th className ="course-prereq">Prerequisites</th>
                     </tr>
                 </thead>
                 <tbody className="course-table-body">
@@ -27,6 +28,7 @@ export function CourseList (): JSX.Element {
                                 <td>{ course.Name }</td>
                                 <td className="credits">{ course.Credits }</td>
                                 <td>{ course.Description }</td>
+                                <td>{ course.Prereq }</td>
                             </tr>
                         );
                     })}
