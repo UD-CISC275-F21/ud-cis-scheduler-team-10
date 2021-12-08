@@ -21,6 +21,12 @@ test("renders help button", () => {
     expect(linkElement).toBeInTheDocument();
 });
 
+test("renders requirements button", () => {
+    render(<App />);
+    const linkElement = screen.getByText(/Degree Requirements/i);
+    expect(linkElement).toBeInTheDocument();
+});
+
 test("renders Semester tabs", () => {
     render(<App />);
     const linkElement1 = screen.getByText(/Fall 2022/i);
@@ -77,10 +83,12 @@ test("renders semester table titles and course list titles", () => {
     const linkElement2 = screen.getAllByText(/Course Name/i);
     const linkElement3 = screen.getAllByText(/Credits/i);
     const linkElement4 = screen.getAllByText(/Description/i);
+    const linkElement5 = screen.getAllByText(/Prerequisites/i);
     expect(linkElement1[0]).toBeInTheDocument();
     expect(linkElement2[0]).toBeInTheDocument();
     expect(linkElement3[0]).toBeInTheDocument();
     expect(linkElement4[0]).toBeInTheDocument();
+    expect(linkElement5[0]).toBeInTheDocument();
 });
 
 test("renders initial input courses", () => {
@@ -178,6 +186,15 @@ test("help modal window", () => {
     const helpText = screen.queryByText("About UD CIS Scheduler");
     expect(helpText).toBeInTheDocument();
 });
+
+test("requirements modal window", () => {
+    render(<App />);
+    const requirementsModalButton = screen.getAllByText("Degree Requirements");
+    requirementsModalButton[0].click();
+    const requirementsText = screen.queryByText("Courses Needed To Graduate");
+    expect(requirementsText).toBeInTheDocument();
+});
+
 
 test("edit course modal", () => {
     render(<App />);
