@@ -21,6 +21,12 @@ test("renders help button", () => {
     expect(linkElement).toBeInTheDocument();
 });
 
+test("renders requirements button", () => {
+    render(<App />);
+    const linkElement = screen.getByText(/Degree Requirements/i);
+    expect(linkElement).toBeInTheDocument();
+});
+
 test("renders Semester tabs", () => {
     render(<App />);
     const linkElement1 = screen.getByText(/Fall 2022/i);
@@ -180,6 +186,15 @@ test("help modal window", () => {
     const helpText = screen.queryByText("About UD CIS Scheduler");
     expect(helpText).toBeInTheDocument();
 });
+
+test("requirements modal window", () => {
+    render(<App />);
+    const requirementsModalButton = screen.getAllByText("Degree Requirements");
+    requirementsModalButton[0].click();
+    const requirementsText = screen.queryByText("Courses Needed To Graduate");
+    expect(requirementsText).toBeInTheDocument();
+});
+
 
 test("edit course modal", () => {
     render(<App />);

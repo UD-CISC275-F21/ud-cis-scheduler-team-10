@@ -7,6 +7,7 @@ import {WelcomeModal} from "./components/WelcomeModal";
 import CourseData from "./data/courses.json";
 import { Semester } from "./interfaces/Semester";
 import { Course } from "./interfaces/Course";
+import { DegreeRequirementsModal } from "./components/DegreeRequirements";
 
 
 
@@ -51,6 +52,7 @@ function App(): JSX.Element {
 
             <h1>UD CIS Scheduler</h1>
             <WelcomeModal></WelcomeModal>
+            <DegreeRequirementsModal></DegreeRequirementsModal>
             <SemesterTab semester1={semester1} semester2={semester2} semester3={semester3} semester4 = {semester4} semester5 = {semester5} semester6 = {semester6} semester7 = {semester7} semester8 = {semester8} ></SemesterTab>
             <div>
                 <h2>Course List</h2>
