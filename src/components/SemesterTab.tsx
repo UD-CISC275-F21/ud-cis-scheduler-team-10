@@ -6,6 +6,7 @@ import { CourseRow } from "./CourseRow";
 import { CSVLink } from "react-csv";
 import {cloneDeep} from "lodash";
 import { CourseList } from "./CourseList";
+import { AddSemesterModal } from "./AddSemesterModal";
 
 
 
@@ -27,6 +28,7 @@ export function SemesterTab({semester1, semester2, semester3, semester4, semeste
     const [semesterCount, setSemesterCount] = useState(loadCourses.length);
     const [semesterNumber, setSemesterNumber] = useState(loadCourses.length + 1);
     const [semesters, setSemesters] = useState(loadCourses);
+    const [visible, setVisible] = useState(false);
 
     function editCourse(oldCourse: Course, newCourse: Course, title: string) {
         for (let i = 0; i < semesters.length; i++) {
@@ -41,27 +43,36 @@ export function SemesterTab({semester1, semester2, semester3, semester4, semeste
             }
         }
     }
+
+    function addSemester(newSemester: Semester){
+        setSemesters([...semesters, newSemester]);
+    }
+
+    function showAddSemesterModal(){
+        setVisible(true);
+    }
     
+
     function save(){
         localStorage.setItem(LOCAL_STORAGE_COURSES, JSON.stringify(semesters));
     }
 
-    const handleAddSemester = () => {
+    /*  const handleAddSemester = () => {
         setSemesterCount(semesterCount + 1);
         setSemesterNumber(semesterNumber + 1);
-        const semesterTitle = "Semester " + semesterNumber as string;
+        const semesterTitle = "Semester " + semesterNumber as string; */
 
-        const newCourse = {} as Course;
+    /*  const newCourse = {} as Course;
         newCourse.Number = "--";
         newCourse.Credits = "--";
         newCourse.Name = "--";
         newCourse.Description = "--";
-
-        const newSemester = {} as Semester;
+ */
+    /*  const newSemester = {} as Semester;
         newSemester.Title = semesterTitle;
         newSemester.Courses = [newCourse, newCourse, newCourse];
         setSemesters([...semesters,newSemester]);
-    };
+    }; */
 
     const removeSemester = (c: string) => {
         setSemesterCount(semesterCount-1);
@@ -152,7 +163,7 @@ export function SemesterTab({semester1, semester2, semester3, semester4, semeste
                             </Tab>
                         );
                     })}
-                    <Tab eventKey="add_semester_tab" title={<Button variant = 'success' onClick = {handleAddSemester}>+Add Semester+</Button>}></Tab>
+                    <Tab eventKey="add_semester_tab" title={<Button variant = 'success' onClick = {showAddSemesterModal}>+Add Semester+</Button>}></Tab>
                 </Tabs>
                 <Button variant = 'danger' onClick = {removeAllSemesters}>-Remove all Semesters-</Button>
                 <div>
@@ -166,6 +177,7 @@ export function SemesterTab({semester1, semester2, semester3, semester4, semeste
                     <Button variant = 'info'>
                         <CSVLink data = {JSON.stringify(semesters,null,2)}>Download to CSV!</CSVLink>
                     </Button>
+                    <AddSemesterModal visible={visible} setVisible={setVisible} addSemester={addSemester}></AddSemesterModal>
                     <div>
                         <p></p>
                     </div>
@@ -182,7 +194,8 @@ export function SemesterTab({semester1, semester2, semester3, semester4, semeste
         return(
             <div>
                 <Tabs id="Semester_tabs" className="mb-3">
-                    <Tab eventKey="add_semester_tab" title={<Button variant = 'success' onClick = {handleAddSemester}>+Add Semester+</Button>}></Tab>
+                    <Tab eventKey="add_semester_tab" title={<Button variant = 'success' onClick = {() => setVisible(true)}>+Add Semester+</Button>}></Tab>
+
                 </Tabs>
                 <Button variant = 'danger' onClick = {removeAllSemesters}>-Remove all Semesters-</Button>
                 <div>
@@ -194,7 +207,9 @@ export function SemesterTab({semester1, semester2, semester3, semester4, semeste
                     <h2>Course List</h2>
                     <CourseList semesters={semesters} addToSemester={addToSemester}></CourseList>
                 </div>
+                <AddSemesterModal visible={visible} setVisible={setVisible} addSemester={addSemester}></AddSemesterModal>
             </div>
         );
     }
 } 
+

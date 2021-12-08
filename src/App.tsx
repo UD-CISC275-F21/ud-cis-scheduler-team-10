@@ -9,6 +9,7 @@ import { Semester } from "./interfaces/Semester";
 import { Course } from "./interfaces/Course";
 
 
+
 const courseArray = JSON.parse(JSON.stringify(CourseData));
 
 function App(): JSX.Element {
@@ -45,7 +46,6 @@ function App(): JSX.Element {
     const semester8 = {} as Semester;
     semester8.Title = "Spring 2026";
     semester8.Courses = [courseArray[47] as Course, courseArray[65] as Course, courseArray[64] as Course, courseArray[59] as Course, courseArray[59] as Course];
-
     return (
         <div className="App">
 

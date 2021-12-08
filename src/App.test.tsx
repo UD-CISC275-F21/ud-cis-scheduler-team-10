@@ -110,8 +110,15 @@ test("add new semester button", () => {
     render(<App />);
     const addButton = screen.getAllByText("+Add Semester+");
     addButton[0].click();
-    const newSemester = screen.getAllByText("Semester 9");
-    expect(newSemester[0]).toBeInTheDocument();
+    const element1 = screen.getAllByTestId("modal_add_semester_textbox");
+    expect(element1[0].textContent).toEqual("Set Title");
+    userEvent.type(element1[0], "{selectall}{backspace}Fall 2022");
+
+    const button2 = screen.getAllByTestId("save-Semester-button");
+    button2[0].click();
+
+    const newSemesterTitle = screen.getAllByText("Fall 2022");
+    expect(newSemesterTitle[0]).toBeInTheDocument();
 });
 
 test("remove course button", () => {
@@ -225,4 +232,14 @@ test("edit the course by clicking the edit button", () => {
     expect(newCredit[0]).toBeInTheDocument();
     expect(newName[0]).toBeInTheDocument();
     expect(newDescription[0]).toBeInTheDocument();
+});
+
+test("add semester modal", () => {
+    render(<App />);
+    const addModalButton = screen.getAllByText("+Add Semester+");
+    addModalButton[0].click();
+    const saveEdit = screen.queryByText("Save changes");
+    const closeModal = screen.queryByText("Close");
+    expect(saveEdit).toBeInTheDocument();
+    expect(closeModal).toBeInTheDocument();
 });

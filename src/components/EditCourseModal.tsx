@@ -9,13 +9,15 @@ export function EditCourseModal({visible, setVisible, editCourse, course, semest
     const [courseCredits, setCourseCredits] = useState(course.Credits);
     const [courseName, setCourseName] = useState(course.Name);
     const [courseDescription, setCourseDescription] = useState(course.Description);
+    const [coursePrereq, setCoursePrereq] = useState(course.Prereq);
 
     function saveCourse() {
         const newCourse = {
             Number: courseNumber,
             Credits: courseCredits,
             Name: courseName,
-            Description: courseDescription
+            Description: courseDescription,
+            Prereq: coursePrereq
         };
         editCourse(course, newCourse, semesterTitle);
         setVisible(false);
@@ -53,6 +55,12 @@ export function EditCourseModal({visible, setVisible, editCourse, course, semest
                         <Form.Control as="textarea" rows={3} data-testid = "modal_course_description_textbox"
                             value={courseDescription}
                             onChange={(ev: React.ChangeEvent<HTMLTextAreaElement>) => setCourseDescription(ev.target.value)}/>
+                    </Form.Group>
+                    <Form.Group className="mb-3" controlId="editCourseForm.coursePrereqArea">
+                        <Form.Label>Prerequisites</Form.Label>
+                        <Form.Control as="textarea" rows={3} data-testid = "modal_course_Prereq_textbox"
+                            value={coursePrereq}
+                            onChange={(ev: React.ChangeEvent<HTMLTextAreaElement>) => setCoursePrereq(ev.target.value)}/>
                     </Form.Group>
                 </Form>
             </Modal.Body>

@@ -22,13 +22,14 @@ export function CourseList ({semesters, addToSemester}: {semesters: Semester[], 
                         <th className="course-credits">Credits</th>
                         <th className="course-name">Course Name</th>
                         <th className="course-description">Description</th>
+                        <th className ="course-prereq">Prerequisites</th>
                         <th className="add-course">Add to Semester</th>
                     </tr>
                 </thead>
                 <tbody className="course-table-body">
                     { Courses.map(course => {
                         return(
-                            <CourseListCourseRow key={course.Number} course={course} semesters={semesters} addToSemester={addToSemester}></CourseListCourseRow>
+                            <CourseListCourseRow key={course.Number} course={course as Course} semesters={semesters} addToSemester={addToSemester}></CourseListCourseRow>
                         );
                     })}
                 </tbody>

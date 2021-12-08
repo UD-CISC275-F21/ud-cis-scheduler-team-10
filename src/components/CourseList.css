@@ -14,11 +14,11 @@
 
 
 .course-number {
-    width: 86px;
+    width: 130px;
 }
 
 .course-name {
-    width: 279px;
+    width: 270px;
 }
 
 .course-credits {
@@ -26,9 +26,17 @@
 }
 
 .course-description {
-    width: 1500px;
+    width: 1150px;
 }
 
 .credits {
     width: 70px;
+}
+
+.course-prereq {
+    width: 150px;
+}
+
+.add_course {
+    width: 100px;
 }
