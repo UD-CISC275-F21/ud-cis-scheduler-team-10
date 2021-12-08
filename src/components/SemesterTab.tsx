@@ -9,9 +9,6 @@ import { CourseList } from "./CourseList";
 import { AddSemesterModal } from "./AddSemesterModal";
 
 
-
-//const courseArray = JSON.parse(JSON.stringify(CourseData));
-
 export const LOCAL_STORAGE_COURSES = "scheduler-courses";
 
 export function getLocalStorageCourses({semester1, semester2, semester3, semester4, semester5, semester6, semester7, semester8}: {semester1: Semester, semester2: Semester, semester3: Semester, semester4: Semester, semester5: Semester, semester6: Semester, semester7: Semester, semester8: Semester}): Semester[]{
@@ -46,6 +43,8 @@ export function SemesterTab({semester1, semester2, semester3, semester4, semeste
 
     function addSemester(newSemester: Semester){
         setSemesters([...semesters, newSemester]);
+        setSemesterCount(semesterCount + 1);
+        setSemesterNumber(semesterNumber + 1);
     }
 
     function showAddSemesterModal(){
@@ -56,23 +55,6 @@ export function SemesterTab({semester1, semester2, semester3, semester4, semeste
     function save(){
         localStorage.setItem(LOCAL_STORAGE_COURSES, JSON.stringify(semesters));
     }
-
-    /*  const handleAddSemester = () => {
-        setSemesterCount(semesterCount + 1);
-        setSemesterNumber(semesterNumber + 1);
-        const semesterTitle = "Semester " + semesterNumber as string; */
-
-    /*  const newCourse = {} as Course;
-        newCourse.Number = "--";
-        newCourse.Credits = "--";
-        newCourse.Name = "--";
-        newCourse.Description = "--";
- */
-    /*  const newSemester = {} as Semester;
-        newSemester.Title = semesterTitle;
-        newSemester.Courses = [newCourse, newCourse, newCourse];
-        setSemesters([...semesters,newSemester]);
-    }; */
 
     const removeSemester = (c: string) => {
         setSemesterCount(semesterCount-1);
@@ -194,20 +176,20 @@ export function SemesterTab({semester1, semester2, semester3, semester4, semeste
         return(
             <div>
                 <Tabs id="Semester_tabs" className="mb-3">
-                    <Tab eventKey="add_semester_tab" title={<Button variant = 'success' onClick = {() => setVisible(true)}>+Add Semester+</Button>}></Tab>
+                    <Tab eventKey="add_semester_tab" title={<Button variant = 'success' onClick = {showAddSemesterModal}>+Add Semester+</Button>}></Tab>
 
                 </Tabs>
                 <Button variant = 'danger' onClick = {removeAllSemesters}>-Remove all Semesters-</Button>
                 <div>
                     <p></p>
                 </div>
+                <AddSemesterModal visible={visible} setVisible={setVisible} addSemester={addSemester}></AddSemesterModal>
                 <Button variant = 'success' onClick = {save}>Save Courses</Button>
 
                 <div>
                     <h2>Course List</h2>
                     <CourseList semesters={semesters} addToSemester={addToSemester}></CourseList>
                 </div>
-                <AddSemesterModal visible={visible} setVisible={setVisible} addSemester={addSemester}></AddSemesterModal>
             </div>
         );
     }
