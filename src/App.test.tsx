@@ -255,7 +255,7 @@ that arise in computer systems development and in all application areas of compu
 
 test("add semester modal", () => {
     render(<App />);
-    const button = screen.getByTestId("welcome-modal_close_button");
+    const button = screen.getByTestId("welcome_modal_close_button");
     button.click();
     const addModalButton = screen.getAllByText("+Add Semester+");
     addModalButton[0].click();
