@@ -15,8 +15,8 @@ export function AddCourseModal ({visible, setVisible, newCourse, semesters, addT
 
     return (
         <Modal show={visible} onHide={hide}>
-            <Modal.Header closeButton>
-                <Modal.Title>Add Course to Semester</Modal.Title>
+            <Modal.Header closeButton data-testid="modal_title">
+                <Modal.Title >Add Course to Semester</Modal.Title>
             </Modal.Header>
 
             <Modal.Body>

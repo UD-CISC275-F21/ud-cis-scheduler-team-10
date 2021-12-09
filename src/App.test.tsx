@@ -263,9 +263,10 @@ test("add semester modal", () => {
     expect(closeModal).toBeInTheDocument();
 });
 
-test("Add course from courseList", () => {
+test("Render add course modal", () => {
     render(<App />);
     const addCourseButton = screen.getAllByTestId("add_course_button_CL");
     addCourseButton[0].click();
-    expect("Add Course to Semester").toBeInTheDocument();
+    const modalText = screen.getAllByText("Choose which semester you would like to add the course to:");
+    expect(modalText[0]).toBeInTheDocument();
 });
