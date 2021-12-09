@@ -5,14 +5,14 @@ import userEvent from "@testing-library/user-event";
 
 test("renders UD CIS Scheduler text", () => {
     render(<App />);
-    const linkElement = screen.getByText(/UD CIS Scheduler/i);
-    expect(linkElement).toBeInTheDocument();
+    const linkElement = screen.getAllByText(/UD CIS Scheduler/i);
+    expect(linkElement[0]).toBeInTheDocument();
 });
 
 test("renders Course List text", () => {
     render(<App />);
-    const linkElement = screen.getByText(/Course List/i);
-    expect(linkElement).toBeInTheDocument();
+    const linkElement = screen.getAllByText(/Course List/i);
+    expect(linkElement[0]).toBeInTheDocument();
 });
 
 test("renders help button", () => {
@@ -23,8 +23,8 @@ test("renders help button", () => {
 
 test("renders requirements button", () => {
     render(<App />);
-    const linkElement = screen.getByText(/Degree Requirements/i);
-    expect(linkElement).toBeInTheDocument();
+    const linkElement = screen.getAllByText(/Degree Requirements/i);
+    expect(linkElement[0]).toBeInTheDocument();
 });
 
 test("renders Semester tabs", () => {
@@ -201,9 +201,9 @@ test("edit course modal", () => {
     const editModalButton = screen.getAllByText("Edit Course");
     editModalButton[0].click();
     const saveEdit = screen.queryByText("Save changes");
-    const closeModal = screen.queryByText("Close");
+    const closeModal = screen.queryAllByText("Close");
     expect(saveEdit).toBeInTheDocument();
-    expect(closeModal).toBeInTheDocument();
+    expect(closeModal[0]).toBeInTheDocument();
 });
 
 test("save courses button", () => {
@@ -255,12 +255,14 @@ that arise in computer systems development and in all application areas of compu
 
 test("add semester modal", () => {
     render(<App />);
+    const button = screen.getByTestId("welcome-modal_close_button");
+    button.click();
     const addModalButton = screen.getAllByText("+Add Semester+");
     addModalButton[0].click();
     const saveEdit = screen.queryByText("Save changes");
-    const closeModal = screen.queryByText("Close");
+    const closeModal = screen.queryAllByText("Close");
     expect(saveEdit).toBeInTheDocument();
-    expect(closeModal).toBeInTheDocument();
+    expect(closeModal[0]).toBeInTheDocument();
 });
 
 test("Render add course modal", () => {
