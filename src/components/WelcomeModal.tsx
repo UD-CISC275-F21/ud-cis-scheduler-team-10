@@ -24,7 +24,7 @@ export function WelcomeModal(): JSX.Element{
                         degree requirements using the button at the top, and make sure to check your pre-requisites tab whenever you pick a course.
             </Modal.Body>
             <Modal.Footer>
-                <Button data-testid="welcome-modal_close_button" variant="secondary" onClick={handleClose}>
+                <Button data-testid="welcome_modal_close_button" variant="secondary" onClick={handleClose}>
                     Close
                 </Button>
             </Modal.Footer>
