@@ -20,7 +20,7 @@ export function CourseListCourseRow ({course, semesters, addToSemester}: {course
             <td className="course-name">{course.Name}</td>
             <td className="course-description">{course.Description}</td>
             <td className="course-prereq">{course.Prereq}</td>
-            <td  data-testid="add_course_button_CL" className="add-course"><Button variant="success" onClick={showAddCourseModal}>Add Course</Button></td>
+            <td className="add-course"><Button data-testid="add_course_button_CL" variant="success" onClick={showAddCourseModal}>Add Course</Button></td>
             <AddCourseModal visible={visible} setVisible={setVisible} newCourse={course} semesters={semesters} addToSemester={addToSemester}></AddCourseModal>
         </tr>
     );
