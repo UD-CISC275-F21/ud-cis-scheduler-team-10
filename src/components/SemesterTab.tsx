@@ -9,7 +9,6 @@ import { CourseList } from "./CourseList";
 import { AddSemesterModal } from "./AddSemesterModal";
 
 
-
 export const LOCAL_STORAGE_COURSES = "scheduler-courses";
 
 export function getLocalStorageCourses({initialSemesterList}: {initialSemesterList: Semester[]}): Semester[]{
@@ -44,6 +43,8 @@ export function SemesterTab({initialSemesterList}: {initialSemesterList: Semeste
 
     function addSemester(newSemester: Semester){
         setSemesters([...semesters, newSemester]);
+        setSemesterCount(semesterCount + 1);
+        setSemesterNumber(semesterNumber + 1);
     }
 
     function showAddSemesterModal(){
@@ -175,20 +176,20 @@ export function SemesterTab({initialSemesterList}: {initialSemesterList: Semeste
         return(
             <div>
                 <Tabs id="Semester_tabs" className="mb-3">
-                    <Tab eventKey="add_semester_tab" title={<Button variant = 'success' onClick = {() => setVisible(true)}>+Add Semester+</Button>}></Tab>
+                    <Tab eventKey="add_semester_tab" title={<Button variant = 'success' onClick = {showAddSemesterModal}>+Add Semester+</Button>}></Tab>
 
                 </Tabs>
                 <Button variant = 'danger' onClick = {removeAllSemesters}>-Remove all Semesters-</Button>
                 <div>
                     <p></p>
                 </div>
+                <AddSemesterModal visible={visible} setVisible={setVisible} addSemester={addSemester}></AddSemesterModal>
                 <Button variant = 'success' onClick = {save}>Save Courses</Button>
 
                 <div>
                     <h2>Course List</h2>
                     <CourseList semesters={semesters} addToSemester={addToSemester}></CourseList>
                 </div>
-                <AddSemesterModal visible={visible} setVisible={setVisible} addSemester={addSemester}></AddSemesterModal>
             </div>
         );
     }
