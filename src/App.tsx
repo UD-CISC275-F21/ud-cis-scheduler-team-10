@@ -18,7 +18,9 @@ function App(): JSX.Element {
 
             <h1>UD CIS Scheduler</h1>
             <WelcomeModal></WelcomeModal>
+            <div><p></p></div>
             <DegreeRequirementsModal></DegreeRequirementsModal>
+            <div><p></p></div>
             <SemesterTab initialSemesterList={initialSemesters} ></SemesterTab>
         </div>
     );
