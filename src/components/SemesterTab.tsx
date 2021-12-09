@@ -10,21 +10,19 @@ import { AddSemesterModal } from "./AddSemesterModal";
 
 
 
-//const courseArray = JSON.parse(JSON.stringify(CourseData));
-
 export const LOCAL_STORAGE_COURSES = "scheduler-courses";
 
-export function getLocalStorageCourses({semester1, semester2, semester3, semester4, semester5, semester6, semester7, semester8}: {semester1: Semester, semester2: Semester, semester3: Semester, semester4: Semester, semester5: Semester, semester6: Semester, semester7: Semester, semester8: Semester}): Semester[]{
+export function getLocalStorageCourses({initialSemesterList}: {initialSemesterList: Semester[]}): Semester[]{
     const rawCourses: string | null = localStorage.getItem(LOCAL_STORAGE_COURSES);
     if (rawCourses == null) {
-        return[semester1,semester2,semester3,semester4, semester5, semester6, semester7, semester8];
+        return initialSemesterList;
     }else {
         return JSON.parse(rawCourses);
     }
 }
 
-export function SemesterTab({semester1, semester2, semester3, semester4, semester5, semester6, semester7, semester8}: {semester1: Semester, semester2: Semester, semester3: Semester, semester4: Semester, semester5: Semester, semester6: Semester, semester7: Semester, semester8: Semester}): JSX.Element {
-    const loadCourses = getLocalStorageCourses({semester1, semester2, semester3, semester4, semester5, semester6, semester7, semester8});
+export function SemesterTab({initialSemesterList}: {initialSemesterList: Semester[]}): JSX.Element {
+    const loadCourses = getLocalStorageCourses({initialSemesterList});
     const [semesterCount, setSemesterCount] = useState(loadCourses.length);
     const [semesterNumber, setSemesterNumber] = useState(loadCourses.length + 1);
     const [semesters, setSemesters] = useState(loadCourses);
@@ -56,23 +54,6 @@ export function SemesterTab({semester1, semester2, semester3, semester4, semeste
     function save(){
         localStorage.setItem(LOCAL_STORAGE_COURSES, JSON.stringify(semesters));
     }
-
-    /*  const handleAddSemester = () => {
-        setSemesterCount(semesterCount + 1);
-        setSemesterNumber(semesterNumber + 1);
-        const semesterTitle = "Semester " + semesterNumber as string; */
-
-    /*  const newCourse = {} as Course;
-        newCourse.Number = "--";
-        newCourse.Credits = "--";
-        newCourse.Name = "--";
-        newCourse.Description = "--";
- */
-    /*  const newSemester = {} as Semester;
-        newSemester.Title = semesterTitle;
-        newSemester.Courses = [newCourse, newCourse, newCourse];
-        setSemesters([...semesters,newSemester]);
-    }; */
 
     const removeSemester = (c: string) => {
         setSemesterCount(semesterCount-1);

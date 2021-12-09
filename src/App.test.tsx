@@ -221,9 +221,9 @@ test("save courses button", () => {
 test("edit the course by clicking the edit button", () => {
     render(<App />);
     const button = screen.getAllByText("Edit Course");
-    button[0].click();
+    button[1].click();
     const element1 = screen.getAllByTestId("modal_course_number_textbox");
-    expect(element1[0].textContent).toEqual("CISC108");
+    expect(element1[0].textContent).toEqual("CISC181");
     userEvent.type(element1[0], "{selectall}{backspace}Hello");
 
     const element2 = screen.getAllByTestId("modal_course_credits_textbox");
@@ -231,11 +231,13 @@ test("edit the course by clicking the edit button", () => {
     userEvent.type(element2[0], "{selectall}{backspace}World");
 
     const element3 = screen.getAllByTestId("modal_course_name_textbox");
-    expect(element3[0].textContent).toEqual("Introduction to Programming");
+    expect(element3[0].textContent).toEqual("Introduction to Computer Science II");
     userEvent.type(element3[0], "{selectall}{backspace}Nice");
 
     const element4 = screen.getAllByTestId("modal_course_description_textbox");
-    expect(element4[0].textContent).toEqual("Computing and principles of programming with an emphasis on systematic program design. Topics include functional programming, data abstraction, procedural abstraction, use of control and state, recursion, testing, and object-oriented programming concepts. Requires no prior programming experience, open to any major, but intended primarily for majors and minors in computer science or mathematics.");
+    expect(element4[0].textContent).toEqual(`Principles of computer science illustrated and applied through programming in an object
+oriented language. Programming projects illustrate computational problems, styles and issues
+that arise in computer systems development and in all application areas of computation`);
     userEvent.type(element4[0], "{selectall}{backspace}Day");
 
     const button2 = screen.getAllByTestId("save-changes-button");
@@ -259,4 +261,11 @@ test("add semester modal", () => {
     const closeModal = screen.queryByText("Close");
     expect(saveEdit).toBeInTheDocument();
     expect(closeModal).toBeInTheDocument();
+});
+
+test("Add course from courseList", () => {
+    render(<App />);
+    const addCourseButton = screen.getAllByTestId("add_course_button_CL");
+    addCourseButton[0].click();
+    expect("Add Course to Semester").toBeInTheDocument();
 });
