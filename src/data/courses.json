@@ -1,0 +1,530 @@
+[
+    {
+      "ID": 1,
+      "Number": "CISC108",
+      "Credits": 3,
+      "Name": "Introduction to Programming",
+      "Description": "Computing and principles of programming with an emphasis on systematic program design. Topics include functional programming, data abstraction, procedural abstraction, use of control and state, recursion, testing, and object-oriented programming concepts. Requires no prior programming experience, open to any major, but intended primarily for majors and minors in computer science or mathematics.",
+      "Prereq": "NONE"
+    },
+    {
+      "ID": 2,
+      "Number": "EGGG101",
+      "Credits": 2,
+      "Name": "Introduction to Engineering",
+      "Description": "Introduction to profession, including disciplines of chemical, civil, computer, electrical, environmental, and mechanical engineering. Prepares students for success through integration of: technical problem solving and engineering design, ethical decision-making, teamwork, and communicating to diverse audiences.",
+      "Prereq": "NONE"
+    },
+    {
+      "ID": 3,
+      "Number": "CISC181",
+      "Credits": 3,
+      "Name": "Introduction to Computer Science II",
+      "Description": "Principles of computer science illustrated and applied through programming in an object\noriented language. Programming projects illustrate computational problems, styles and issues\nthat arise in computer systems development and in all application areas of computation",
+      "Prereq": "CISC108 OR CISC106"
+    },
+    {
+      "ID": 4,
+      "Number": "CISC210",
+      "Credits": 3,
+      "Name": "Introduction to Systems Programming",
+      "Description": "Principles of computer systems programming for software and hardware platforms to achieve efficient resource usage. Topics include the C programming language, memory management, and awareness of system constraints and interfacing. Projects include programming embedded systems and interactive objects.",
+      "Prereq": "CISC108 OR CISC 106"
+    },
+    {
+      "ID": 5,
+      "Number": "CISC220",
+      "Credits": 3,
+      "Name": "Data Structures",
+      "Description": "Review of data type abstraction, recursion, arrays, stacks, queues, multiple stacks and linked lists. Emphasis on dynamic storage management, garbage collection, trees, graphs, tables, sorting and searching.",
+      "Prereq": "CISC210"
+    },
+    {
+      "ID": 6,
+      "Number": "CISC260",
+      "Credits": 3,
+      "Name": "Machine Org. and Assembly Language",
+      "Description": "Introduction to the basics of machine organization. Programming tools and techniques at the machine and assembly levels. Assembly language programming and computer arithmetic techniques.",
+      "Prereq": "CISC210"
+    },
+    {
+      "ID": 7,
+      "Number": "CISC303",
+      "Credits": 3,
+      "Name": "Automata Theory",
+      "Description": "Automata and formal language theory. Background for advanced applications in compilers, computer networks, operating systems, and natural language processing. Finite automata and regular languages. Push down automata and context free grammars. Turing machines.",
+      "Prereq": "CISC220 AND MATH210"
+    },
+    {
+      "ID": 8,
+      "Number": "CISC320",
+      "Credits": 3,
+      "Name": "Introduction to Algorithms",
+      "Description": "Design and analysis of algorithms: worst/average case analysis, proofs for correctness and performance of algorithms. Algorithmic strategies (divide and conquer, greedy methods, dynamic programming, etc.). Algorithms for searching, forming and traversal of strings, trees and graphs. Categorization of computational problems: classes P and NP. NP completeness.",
+      "Prereq": "MATH210 AND CISC220"
+    },
+    {
+      "ID": 9,
+      "Number": "CISC355",
+      "Credits": 3,
+      "Name": "Computers Ethics & Society",
+      "Description": "Explains relationships among information technology, society and ethics by examining issues raised by increasingly widespread use of computers. Topics include ethics for computer professionals, computer impact on factory work, office work, personal privacy and social power distribution.",
+      "Prereq": "NONE"
+    },
+    {
+      "ID": 10,
+      "Number": "CISC275",
+      "Credits": 3,
+      "Name": "Introduction to Software Engineering",
+      "Description": "Object oriented software design and development through use of the Java programming language. Topics include team programming, design patterns, graphical user interfaces, software engineering tools (eg., integrated development environments, version control, build management, bug tracking, automated\ntesting).",
+      "Prereq": "CISC181 AND CISC220"
+    },
+    {
+      "ID": 11,
+      "Number": "CISC250",
+      "Credits": 3,
+      "Name": "Business Telecommunication Networks",
+      "Description": "Examines technologies of information transmission currently utilized in the business environments and the implications of these technologies upon the development and implementation of information systems. Provides a basic background in the convergence of voice, data and video services into common\ndigital networks. Security issues also considered.",
+      "Prereq": "CISC181 OR MISY160"
+    },
+    {
+      "ID": 12,
+      "Number": "CISC356",
+      "Credits": 3,
+      "Name": "Intellectual Property of the Digital Age",
+      "Description": "Explore economic, philosophical, social, and technical approaches to intellectual property (1500 BCE to present) then will research contemporary IP issues in software, entertainment, the Internet, and biotechnology.",
+      "Prereq": "NONE"
+    },
+    {
+      "ID": 13,
+      "Number": "CISC360",
+      "Credits": 3,
+      "Name": "Computer Architecture",
+      "Description": "Principles and techniques used in the architecture of digital computers. Machine elements and their interrelation. Instruction sets, risc vs cisc, registers, busses and switches.",
+      "Prereq": "CISC220 AND CISC260"
+    },
+    {
+      "ID": 14,
+      "Number": "CISC361",
+      "Credits": 3,
+      "Name": "Operating Systems",
+      "Description": "Principles and techniques employed in the development of operating systems and their control programs. Includes management of memory, processors, I/O devices.",
+      "Prereq": "CISC220 AND CISC260 OR CPEG222"
+    },
+    {
+      "ID": 15,
+      "Number": "CISC364",
+      "Credits": 3,
+      "Name": "System Security",
+      "Description": "Concepts in maintaining a secure network of computers connected to the\nInternet. Topics include information security, classic/common exploits of\noperating system and networking weaknesses (e.g., buffer overflows, denial of\nservice) and how to prevent them, symmetric and public-key cryptography, digital\nsignatures, wireless LAN security, and firewalls.",
+      "Prereq": "NONE"
+    },
+    {
+      "ID": 16,
+      "Number": "CISC372",
+      "Credits": 3,
+      "Name": "Parallel Programming",
+      "Description": "Introduction to parallel programming concepts, methodologies, and tools. Programming techniques for programs that contain code segments which will run simultaneously on multiple processors. Topics include: concurrency, program decomposition, data distribution, communication, load balancing, scalability, locality, granularity, debugging, performance evaluation.",
+      "Prereq": "CISC220 AND CISC260"
+    },
+    {
+      "ID": 17,
+      "Number": "CISC374",
+      "Credits": 3,
+      "Name": "Educational Game Development",
+      "Description": "Experience the software engineering process through creating educational games for youth; open-ended, project-oriented team learning while assisting regional teachers in integrating computing and computational thinking into the classroom; interact with teachers as clients, hone communication skills and experience design-studio-based critiques of your ideas.",
+      "Prereq": "CISC220"
+    },
+    {
+      "ID": 18,
+      "Number": "CISC401",
+      "Credits": 3,
+      "Name": "Elements of the Theory of Computation",
+      "Description": "General models of computation, formal languages and automata theory and algorithmic unsolvability.",
+      "Prereq": "CISC303"
+    },
+    {
+      "ID": 19,
+      "Number": "CISC404",
+      "Credits": 3,
+      "Name": "Logic in Computer Science",
+      "Description": "Formal introduction to first-order logic with emphasis on its relevance to computer science. Syntax, semantics, models, formal proofs and results on soundness, consistency, completeness, compactness and undecidability. Automated theorem proving also covered.",
+      "Prereq": "CISC304"
+    },
+    {
+      "ID": 20,
+      "Number": "CISC409",
+      "Credits": 3,
+      "Name": "Topics in Theoretical Computer Science",
+      "Description": "Contents vary to coincide with the interests of students and current faculty.",
+      "Prereq": "NONE"
+    },
+    {
+      "ID": 21,
+      "Number": "CISC410",
+      "Credits": 3,
+      "Name": "Introduction ot Numerical Analysis & Algorithmic Computation",
+      "Description": "Direct and iterative methods for solution of algebraic equations and systems of\nlinear equations, matrix inversion, pseudo-inverses, algebraic eigenvalue\nproblems, linear least-square problems and nonlinear equations. Stresses both\nnumerical analysis and algorithmic aspects.",
+      "Prereq": "MATH305 OR MATH351 OR MATH349"
+    },
+    {
+      "ID": 22,
+      "Number": "CISC411",
+      "Credits": 3,
+      "Name": "Algorithmic and Numerical Solution of Differential Equations",
+      "Description": "Algorithms for numerical integration and differentiation. Initial value problems; boundary value problems in ordinary differential equations; finite difference (explicit and implicit) methods; polynomial and spline approximation; finite elements and collocation; and introduction to numerical methods for partial differential equations.",
+      "Prereq": "MATH426 OR CISC410 OR MATH353"
+    },
+    {
+      "ID": 23,
+      "Number": "CISC414",
+      "Credits": 3,
+      "Name": "Formal Methods in Software Engineering",
+      "Description": "Formal approaches to the specification, verification, and design of software systems. Topics include representing programs as transition systems; liveness and safety properties; state space reachability; explicit, symbolic and automata-based model checking; temporal logics; symbolic execution; automated theorem-proving; and relational calculus. Learn to use state-of-the-art tools based on these methods, such as the model checker Spin.",
+      "Prereq": "CISC304"
+    },
+    {
+      "ID": 24,
+      "Number": "CISC429",
+      "Credits": 3,
+      "Name": "Topics in Algorithms and Complexity Theory",
+      "Description": "Contents vary to coincide with the interests of students and current faculty.",
+      "Prereq": "NONE"
+    },
+    {
+      "ID": 25,
+      "Number": "CISC436",
+      "Credits": 3,
+      "Name": "Bioinformatics",
+      "Description": "Concepts, methodologies, and tools in bioinformatics. Abstraction of biological problems for computational solutions. Genome sequencing and assembly, biosequence analysis and comparison and database search, dynamics programming, hidden Markov models, and phylogenetic trees.",
+      "Prereq": "CISC220"
+    },
+    {
+      "ID": 26,
+      "Number": "CISC437",
+      "Credits": 3,
+      "Name": "Database Systems",
+      "Description": "Physical and logical organization of databases. Data retrieval languages, relational database languages, security and integrity, concurrency, distributed databases.",
+      "Prereq": "CISC220"
+    },
+    {
+      "ID": 27,
+      "Number": "CISC440",
+      "Credits": 3,
+      "Name": "Computer Graphics",
+      "Description": "Computer graphics technology, two- and three-dimensional systems, graphics\nsoftware systems, modeling and object hierarchy, and animation.",
+      "Prereq": "CISC220 AND MATH241"
+    },
+    {
+      "ID": 28,
+      "Number": "CISC442",
+      "Credits": 3,
+      "Name": "Introduction to Computer Vision",
+      "Description": "Analysis of images and video to recognize, reconstruct, model, and otherwise infer\nstatic and dynamic properties of objects in the three-dimensional world.\nGeometry of image formation; image processing such as smoothing, edge and\nfeature detection, color, and texture; segmentation; shape representation\nincluding deformable templates; stereo vision; motion estimation and tracking;\ntechniques for 3-D reconstruction; image registration methods.",
+      "Prereq": "CISC220"
+    },
+    {
+      "ID": 29,
+      "Number": "CISC450",
+      "Credits": 3,
+      "Name": "Computer Nerworks I",
+      "Description": "Foundation principles, architectures and techniques employed in computer and\ncommunication networks. Focuses on mechanisms used in TCP/IP protocol suite.\nTopics include connection management, end-to-end reliable data transfer, sliding\nwindow protocols, quality of service, flow control, congestion control, routing,\nLANs, framing, error control, analog versus digital transmission, packet versus\ncircuit switching, multiplexing.",
+      "Prereq": "CISC260 OR CPEG222"
+    },
+    {
+      "ID": 30,
+      "Number": "CISC451",
+      "Credits": 3,
+      "Name": "Data Compression in Multimedia",
+      "Description": "Important approaches to data and multimedia compression. Lossless techniques: Huffman, dictionary, arithmetic, run length. Lossless applications: GIF, lossless JPEG, Unix compress, facsimile. Lossy techniques: scalar/vector quantization, differential/subband/transform/wavelet encoding. Lossy applications: JPEG, JPEG200, MPEG, MP3.",
+      "Prereq": "CISC450"
+    },
+    {
+      "ID": 31,
+      "Number": "CISC452",
+      "Credits": 3,
+      "Name": "Telecommunication Systems",
+      "Description": "Presents basic concepts in telecommunications, emphasizing topics such as SONET, Cell and Frame Relay and multimedia switching. Concepts of operation and maintenance of large communications networks discussed.",
+      "Prereq": "CISC450"
+    },
+    {
+      "ID": 32,
+      "Number": "CISC453",
+      "Credits": 3,
+      "Name": "Simulation of Computer Networks",
+      "Description": "Modeling and computer simulation of discrete systems using discrete event simulation techniques. Application to the performance evaluation and modeling of computer networks and networking protocols. Study and use of simulation systems such as OPNET, Qualnet, and ns-2.",
+      "Prereq": "CISC450"
+    },
+    {
+      "ID": 33,
+      "Number": "CISC458",
+      "Credits": 3,
+      "Name": "Applied Computer Networks",
+      "Description": "Principles of communications as they apply to computer networks. Includes advanced concepts of network design, construction and management.",
+      "Prereq": "CISC450"
+    },
+    {
+      "ID": 34,
+      "Number": "CISC459",
+      "Credits": 3,
+      "Name": "Topics in Communications, Distributed Computing and Networks 3",
+      "Description": "Contents vary to coincide with the interests of students and current faculty.",
+      "Prereq": "CISC450"
+    },
+    {
+      "ID": 35,
+      "Number": "CISC464",
+      "Credits": 3,
+      "Name": "Introduction to Network Security",
+      "Description": "Practical introduction to network security field. Covers material on cryptography, intrusions, denial-of-service attacks, worms, honeynets and other hot topics in network security.",
+      "Prereq": "CISC450"
+    },
+    {
+      "ID": 36,
+      "Number": "CISC470",
+      "Credits": 3,
+      "Name": "Programming Languages",
+      "Description": "Selection, use and implementation of appropriate language(s) for given problems. Syntax, semantics, pragmatics, parameter passing, abstract data types and comparisons between languages.",
+      "Prereq": "CISC260 AND CISC303"
+    },
+    {
+      "ID": 37,
+      "Number": "CISC471",
+      "Credits": 3,
+      "Name": "Compiler Design",
+      "Description": "Introduction to the design and implementation of compilers, with a focus on lexical analysis, parsing and syntax directed translation.",
+      "Prereq": "CISC260 AND CISC303"
+    },
+    {
+      "ID": 38,
+      "Number": "CISC473",
+      "Credits": 3,
+      "Name": "Computer Science Projects",
+      "Description": "Experimental, theoretical and literature studies of computer science problems.",
+      "Prereq": "NONE"
+    },
+    {
+      "ID": 39,
+      "Number": "CISC474",
+      "Credits": 3,
+      "Name": "Advanced Web Technologies",
+      "Description": "Programming and architecture of web servers and the technologies for implementing high performance, sophisticated web sites for applications like e-commerce. Students learn how to install and set-up a web server, how to write and install programs for a web server, and how to design and implement multi-tier client/server applications with database backends.",
+      "Prereq": "CISC275"
+    },
+    {
+      "ID": 40,
+      "Number": "CISC475",
+      "Credits": 3,
+      "Name": "Advanced Software Engineering",
+      "Description": "Understand and apply a complete modern software engineering process. Topics\ninclude requirements analysis, specification, design, implementation, verification,\nand project management. Real-life team projects cover all aspects of the software\ndevelopment lifecycle, from the requirements to acceptance testing.",
+      "Prereq": "CISC275"
+    },
+    {
+      "ID": 41,
+      "Number": "CISC449",
+      "Credits": 3,
+      "Name": "Topics in Computer Applications",
+      "Description": "Contents will vary to coincide with the interests of students and current faculty.",
+      "Prereq": "NONE"
+    },
+    {
+      "ID": 42,
+      "Number": "CISC477",
+      "Credits": 3,
+      "Name": "System Administration",
+      "Description": "Introduces students to the internals of UNIX, trouble-shooting system and network problems, hardware and software configuration and installation, and security aspects of hosts on the internet. Multi-operating system integration will also be discusssed.",
+      "Prereq": "NONE"
+    },
+    {
+      "ID": 43,
+      "Number": "CISC479",
+      "Credits": 3,
+      "Name": "Topics in Architecture and Software",
+      "Description": "Contents will vary to coincide with the interests of students and faculty.",
+      "Prereq": "CISC361"
+    },
+    {
+      "ID": 44,
+      "Number": "CISC481",
+      "Credits": 3,
+      "Name": "Artificial Intelligence",
+      "Description": "Programming techniques for problems not amenable to algorithmic solutions. Problem formulation, search strategies, state spaces, applications of logic, knowledge representation, planning and application areas.",
+      "Prereq": "CISC220 AND CISC304"
+    },
+    {
+      "ID": 45,
+      "Number": "CISC483",
+      "Credits": 3,
+      "Name": "Introduction to Data Mining",
+      "Description": "Concepts, techniques, and algorithms for mining large data sets to discover\nstructural patterns that can be used to make subsequent predictions. Emphasis on\npractical approaches and empirical evaluation. Use of a workbench of data mining\ntools, such as the Weka toolkit.",
+      "Prereq": "CISC220 AND MATH205 OR MATH350"
+    },
+    {
+      "ID": 46,
+      "Number": "CISC489",
+      "Credits": 3,
+      "Name": "Topics: Artificial Intelligence",
+      "Description": "Contents vary to coincide with the interests of students and current faculty.",
+      "Prereq": "NONE"
+    },
+    {
+      "ID": 47,
+      "Number": "CISC498",
+      "Credits": 3,
+      "Name": "Computer Science Senior Design Project I",
+      "Description": "Apply a complete modern software engineering process. Activities include requirements analysis, specification, design, implementation, verification, and project management. Real-life team projects with a client cover all aspects of the software development life-cycle, from the requirements to acceptance testing. This is the first semester of a two-semester sequence.",
+      "Prereq": "CISC275 AND CISC320"
+    },
+    {
+      "ID": 48,
+      "Number": "CISC499",
+      "Credits": 3,
+      "Name": "Computer Science Senior Design Project II",
+      "Description": "Continuation of CISC498",
+      "Prereq": "CISC498"
+    },
+    {
+      "ID": 49,
+      "Number": "MATH241",
+      "Credits": 4,
+      "Name": "Analytic Geometry and Calculus A",
+      "Description": "Functions, limits, continuity, derivatives. Polynomial, rational, exponential, hyperbolic, logarithmic, trigonometric and inverse trigonometric functions. Definite and indefinite integrals and the Fundamental Theorem of Calculus. Simple differential equations (separable ODE, linear ODE). ODE models leading to exponential growth and decay.",
+      "Prereq": "MATH117, OR MATH PLACEMENT"
+    },
+    {
+      "ID": 50,
+      "Number": "ENGL110",
+      "Credits": 3,
+      "Name": "Seminar and Composition",
+      "Description": "Introduction to the process of academic writing that centers on the composition of analytical, research-based essays.",
+      "Prereq": "NONE"
+    },
+    {
+      "ID": 51,
+      "Number": "MATH210",
+      "Credits": 3,
+      "Name": "Descrete Mathematics I",
+      "Description": "Elements of sets and logic. Relations, functions. Integers. Induction and recursion. Principles and techniques of counting. Graphs. Paths and circuits",
+      "Prereq": "NONE"
+    },
+    {
+      "ID": 52,
+      "Number": "MATH242",
+      "Credits": 4,
+      "Name": "Analytic Geometry and Calculus B",
+      "Description": "Review of exponential and logarithmic functions; inverse trigonometric functions; integration techniques; parametric curves; polar coordinates; infinite series. Includes use of the computer package, Maple, to perform symbolic, numerical and graphical analysis.",
+      "Prereq": "MATH241 OR MATH232"
+    },
+    {
+      "ID": 53,
+      "Number": "MATH205",
+      "Credits": 4,
+      "Name": "Statistical Methods",
+      "Description": "Descriptive statistics, graphical displays, sampling, variation, normal distribution, estimation, hypothesis testing, one-way analysis of variance, simple linear regression and goodness of fit. Laboratory covers use of statistical packages on mainframe and microcomputers.",
+      "Prereq": "MATH210 OR MATH230"
+    },
+    {
+      "ID": 54,
+      "Number": "BISC207",
+      "Credits": 4,
+      "Name": "Introductory Biology I",
+      "Description": "Molecular basis of life. Structure and function of cells, including signal transduction pathways. Energy transformations. Classical Mendelian genetics and the flow of information from DNA to RNA to proteins. Laboratory focuses on the testing of hypotheses, data analysis and scientific writing.",
+      "Prereq": "NONE"
+    },
+    {
+      "ID": 55,
+      "Number": "HIST105",
+      "Credits": 3,
+      "Name": "U.S. History to 1865",
+      "Description": "An introductory survey of 17th, 18th, and 19th-century American history. Themes and approach vary with the instructor. Information valid for courses offered 2019 through 2020.",
+      "Prereq": "NONE"
+    },
+    {
+      "ID": 56,
+      "Number": "PHIL102",
+      "Credits": 3,
+      "Name": "Introduction to Philosophy",
+      "Description": "This course is an analytic introduction to Philosophy through the study of the Philosophy of Religion, Epistemology, Metaphysics and Ethics. Among the questions we will consider are the following: Does God exist? Can we know that an external world exists? Is any belief about the future rational? What is the relationship between the mind and brain? What, if anything, makes our actions right or wrong? Doe we ever act freely? Readings will be from both historical and contemporary sources.",
+      "Prereq": "NONE"
+    },
+    {
+      "ID": 57,
+      "Number": "Breadth Requirement",
+      "Credits": "2-4",
+      "Name": "Breadth Requirement",
+      "Description": "knowledge across diverse fields and perspectives.",
+      "Prereq": "NONE"
+    },
+    {
+      "ID": 58,
+      "Number": "Multicultural Breadth Requirement",
+      "Credits": "2-4",
+      "Name": "Multicultural Breadth Requirement",
+      "Description": "knowledge across diverse fields and perspectives.",
+      "Prereq": "NONE"
+    },
+    {
+      "ID": 59,
+      "Number": "Science Requirement",
+      "Credits": "2-4",
+      "Name": "Science Requirement",
+      "Description": "Lab Science including Biology, Chemistry, Geology or Physics",
+      "Prereq": "NONE"
+    },
+    {
+      "ID": 60,
+      "Number": "Free Elective",
+      "Credits": "2-4",
+      "Name": "Free Elective",
+      "Description": "Free Elective to Earn Credits for Degree Completion.",
+      "Prereq": "NONE"
+    },
+    {
+      "ID": 61,
+      "Number": "CISC304",
+      "Credits": 3,
+      "Name": "Logic for Programming",
+      "Description": "Propositional and predicate logic for general reasoning and advanced applications in knowledge representation in artificial intelligence and database, program correctness and programming semantics. Models, resolution, logic programming, and natural deduction.",
+      "Prereq": "CISC220 AND MATH210"
+    },
+    {
+      "ID": 62,
+      "Number": "ENGL312",
+      "Credits": 3,
+      "Name": "Written Communications in Business",
+      "Description": "Examines the role of written communication in corporate decision making. Students write memos, letters, proposals and reports that simulate on-the-job communication tasks, and are encouraged to use materials from their fields of specialization.",
+      "Prereq": "ENGL110"
+    },
+    {
+      "ID": 63,
+      "Number": "Concentration Requirement",
+      "Credits": "2-4",
+      "Name": "Concentration Requirement",
+      "Description": "Course Designed to Deep Dive into a Specific Field",
+      "Prereq": "NONE"
+    },
+    {
+      "ID": 64,
+      "Number": "UNIV401",
+      "Credits": "2-4",
+      "Name": "Senior Thesis",
+      "Description": "Senior thesis for students working toward a degree with distinction.",
+      "Prereq": "NONE"
+    },
+    {
+      "ID": 65,
+      "Number": "CISC 300-Level Technical Elective",
+      "Credits": "2-4",
+      "Name": "CISC 300-Level Technical Elective",
+      "Description": "Upper Level CISC Technical Elective",
+      "Prereq": "NONE"
+    },
+    {
+      "ID": 66,
+      "Number": "UNIV402",
+      "Credits": "2-4",
+      "Name": "Senior Thesis",
+      "Description": "Continuation of UNIV401.",
+      "Prereq": "NONE"
+    }
+  ]

@@ -1,17 +1,27 @@
 import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { SemesterTab } from "./components/SemesterTab";
+import {WelcomeModal} from "./components/WelcomeModal";
+import { DegreeRequirementsModal } from "./components/DegreeRequirements";
+import { initialSemesters } from "./data/initialSemesters";
+
+
+
+
+
 
 function App(): JSX.Element {
+    
     return (
         <div className="App">
-            <header className="App-header">
-                <img src={logo} className="App-logo" alt="logo" />
-                UD CIS Scheduler
-                <p>
-                    Edit <code>src/App.tsx</code> and save to reload.
-                </p>
-            </header>
+
+            <h1>UD CIS Scheduler</h1>
+            <WelcomeModal></WelcomeModal>
+            <div><p></p></div>
+            <DegreeRequirementsModal></DegreeRequirementsModal>
+            <div><p></p></div>
+            <SemesterTab initialSemesterList={initialSemesters} ></SemesterTab>
         </div>
     );
 }
